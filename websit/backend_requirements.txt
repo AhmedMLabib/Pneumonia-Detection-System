@@ -1,0 +1,9 @@
+flask
+flask_cors
+flask_jwt_extended
+flask_sqlalchemy
+pdfkit ===> install wkhtmltopdf app then add this path in environment variables C:\Program Files\wkhtmltopdf\bin
+tensorflow
+numpy
+joblib
+pandas

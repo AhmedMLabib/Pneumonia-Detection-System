@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Screening Report</title>
+    <style>
+      :root {
+          --primary: #2c3e50;
+          --accent: #3498db;
+          --success: #27ae60;
+          --danger: #e74c3c;
+          --bg-light: #f8f9fa;
+          --text-dark: #333;
+      }
+
+      body {
+          font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+          line-height: 1.6;
+          color: var(--text-dark);
+          margin: 0;
+          padding: 0;
+          background-color: #fff;
+      }
+
+      .container {
+          width: 90%;
+          max-width: 800px;
+          margin: 20px auto;
+          border: 1px solid #ddd;
+          padding: 40px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+
+      /* Header */
+      .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 3px solid var(--primary);
+          padding-bottom: 20px;
+          margin-bottom: 30px;
+      }
+
+      .header-title h1 {
+          margin: 0;
+          color: var(--primary);
+          font-size: 24px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+      }
+
+      .header-title p {
+          margin: 5px 0 0;
+          color: var(--accent);
+          font-weight: bold;
+      }
+
+      .report-meta {
+          text-align: right;
+          font-size: 14px;
+      }
+
+      /* Info Grid */
+      .section-title {
+          background-color: var(--bg-light);
+          padding: 8px 15px;
+          border-left: 5px solid var(--accent);
+          font-weight: bold;
+          margin-bottom: 15px;
+          margin-top: 25px;
+          text-transform: uppercase;
+          font-size: 14px;
+          color: var(--primary);
+      }
+
+      .grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 15px;
+      }
+
+      .info-item {
+          display: flex;
+          border-bottom: 1px solid #eee;
+          padding: 5px 0;
+      }
+
+      .info-label {
+          font-weight: bold;
+          width: 140px;
+          color: #666;
+      }
+
+      /* Symptoms Tag Cloud */
+      .tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-top: 10px;
+      }
+
+      .tag {
+          background: #e1f0fa;
+          color: #2980b9;
+          padding: 4px 12px;
+          border-radius: 15px;
+          font-size: 13px;
+          font-weight: 500;
+      }
+
+      /* Analysis Box */
+      .result-box {
+          border: 2px solid #eee;
+          border-radius: 8px;
+          padding: 25px;
+          margin-top: 20px;
+          text-align: center;
+          background-color: #fff;
+      }
+
+      .diagnosis {
+          font-size: 32px;
+          font-weight: 800;
+          margin: 10px 0;
+          text-transform: uppercase;
+          /* Dynamic color based on diagnosis */
+          color: {{ '#e74c3c' if diagnosis.lower() != 'normal' else '#27ae60' }};
+      }
+
+      .confidence-wrapper {
+          margin: 15px 0;
+      }
+
+      .progress-bar {
+          background-color: #eee;
+          height: 12px;
+          border-radius: 6px;
+          overflow: hidden;
+          width: 250px;
+          margin: 8px auto;
+      }
+
+
+
+      /* Recommendations */
+      .advice-box {
+          background-color: #fffdf2;
+          border-left: 5px solid #f1c40f;
+          padding: 15px;
+          margin-top: 20px;
+          font-style: italic;
+          color: #555;
+      }
+
+      .footer {
+          margin-top: 50px;
+          padding-top: 20px;
+          border-top: 1px solid #eee;
+          font-size: 11px;
+          color: #95a5a6;
+          text-align: center;
+          line-height: 1.4;
+      }
+
+      /* Print Specifics */
+      @media print {
+          .container { box-shadow: none; border: none; width: 100%; padding: 0; }
+          body { background: white; }
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <div class="header-title">
+          <h1>Chest X-Ray Screening Report</h1>
+          <p>AI-Assisted Diagnostic System</p>
+        </div>
+        <div class="report-meta">
+          <div>Patient ID: <strong>#{{user_id}}</strong></div>
+          <div>Date: {{report_date}}</div>
+        </div>
+      </div>
+
+      <!-- Patient Section -->
+      <div class="section-title">Patient Information</div>
+      <div class="grid">
+        <div class="info-item">
+          <span class="info-label">Full Name:</span>
+          <span>{{name}}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Age / Gender:</span>
+          <span>{{age}} Yrs / {{gender}}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Phone Number:</span>
+          <span>{{phone}}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Email Address:</span>
+          <span>{{email}}</span>
+        </div>
+      </div>
+
+      <!-- Inputs Section -->
+      <div class="section-title">Clinical Inputs & Symptoms</div>
+      <div class="info-item">
+        <span class="info-label">Analysis Type:</span>
+        <span>{{check_type}}</span>
+      </div>
+
+      <!-- AI Results -->
+      <div class="section-title">AI Analysis Findings</div>
+      <div class="result-box">
+        <div
+          style="
+            color: #7f8c8d;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          "
+        >
+          Primary Prediction
+        </div>
+        <div class="diagnosis">{{diagnosis}}</div>
+      </div>
+
+      <!-- Recommendation -->
+      <div class="section-title">Medical Recommendations</div>
+      <div class="advice-box">{{advice}}</div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p>
+          <strong>DISCLAIMER:</strong> This report is generated by an Artificial
+          Intelligence screening system for preliminary assistance purposes
+          only. It does not constitute a final medical diagnosis. This report
+          must be reviewed by a qualified radiologist or healthcare professional
+          before any clinical decisions are made.
+        </p>
+        <p>© 2024 AI Healthcare Solutions | System Version 2.1.0-Stable</p>
+      </div>
+    </div>
+  </body>
+</html>
