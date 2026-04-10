@@ -1,0 +1,76 @@
+<div class="login-page">
+    <div class="login-card">
+
+    <!-- Logo -->
+    <div class="text-center mb-4">
+        <img src="assets/logo.png" alt="Logo" class="logo-img">
+        <div class="system-title mt-1">Pneumonia Detector</div>
+    </div>
+
+    <!-- Heading -->
+    <h5 class="card-heading text-center mb-1">Welcome Back!</h5>
+    <p class="card-subtitle text-center mb-4">Please login to your account</p>
+
+    <!-- Error -->
+    <div class="alert alert-danger py-2 mb-3" *ngIf="errorMessage">
+        <i class="fas fa-exclamation-circle me-2"></i>{{ errorMessage }}
+    </div>
+
+    <!-- User Type -->
+    <div class="mb-3">
+        <label class="field-label">User Type</label>
+        <div class="input-wrapper">
+        <i class="fas fa-users input-icon"></i>
+        <select class="custom-input" [(ngModel)]="loginData.user_type" name="user_type" style="padding-left:40px;">
+            <option value="">-- Select User Type --</option>
+            <option value="Admin">Admin</option>
+            <option value="Patient">Patient</option>
+            <option value="Doctor">Doctor</option>
+        </select>
+        </div>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+        <label class="field-label">Email Address</label>
+        <div class="input-wrapper">
+        <i class="fas fa-envelope input-icon"></i>
+        <input type="email" class="custom-input"
+            placeholder="Email Address"
+            [(ngModel)]="loginData.email" name="email" />
+        </div>
+    </div>
+
+    <!-- Password -->
+    <div class="mb-2">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+        <label class="field-label mb-0">Password</label>
+        <a href="#" class="forgot-link">Forgot Password?</a>
+        </div>
+        <div class="input-wrapper">
+        <i class="fas fa-lock input-icon"></i>
+        <input [type]="showPassword ? 'text' : 'password'"
+            class="custom-input"
+            placeholder="Password"
+            [(ngModel)]="loginData.password" name="password"
+            style="padding-right: 40px;" />
+        <button class="toggle-pw" type="button" (click)="togglePassword()">
+            <i class="fas" [class.fa-eye]="!showPassword" [class.fa-eye-slash]="showPassword"></i>
+        </button>
+        </div>
+    </div>
+
+    <!-- Login Button -->
+    <button class="login-btn mt-4" (click)="onLogin()" [disabled]="isLoading">
+      <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2"></span>
+        {{ isLoading ? 'Signing in...' : 'Login' }}
+    </button>
+
+    <!-- Sign Up -->
+    <p class="text-center mt-3 signup-text">
+        Don't have an account?
+        <a routerLink="/register" class="signup-link">Sign Up</a>
+    </p>
+
+    </div>
+</div>
