@@ -27,6 +27,75 @@
       </div>
     </div>
 
+    <!-- age -->
+    <div class="mb-3">
+      <label class="field-label">Age</label>
+      <div class="input-wrapper">
+        <i class="fas fa-birthday-cake input-icon"></i>
+        <input type="number" class="custom-input"
+          placeholder="Age"
+          [(ngModel)]="age" name="age" />
+      </div>
+    </div>
+
+    <!-- phone -->
+    <div class="mb-3">
+      <label class="field-label">Phone Number</label>
+      <div class="input-wrapper">
+        <i class="fas fa-phone input-icon"></i>
+        <input type="tel" class="custom-input"
+          placeholder="Phone Number"
+          [(ngModel)]="phone" name="phone" />
+      </div>
+    </div>
+
+    <div class="mb-3">
+  <label class="field-label">Profile Image</label>
+  <div class="input-wrapper">
+    <i class="fas fa-image input-icon"></i>
+    <input 
+      type="file" 
+      class="custom-input" 
+      accept="image/*"
+      (change)="onImageSelected($event)"
+    />
+  </div>
+  
+  <!-- Preview uploaded image -->
+  @if (imagePreview) {
+    <div class="preview-container mt-2">
+      <img [src]="imagePreview" alt="Profile Preview" class="profile-preview"/>
+      <button type="button" class="btn-remove" (click)="removeImage()">Remove</button>
+    </div>
+  }
+
+    <!-- gender -->
+    <div class="mb-3">
+      <label class="field-label">Gender</label>
+      <div class="input-wrapper">
+        <i class="fas fa-venus-mars input-icon"></i>
+        <select class="custom-input" [(ngModel)]="gender" name="gender">
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div class="mb-3">
+      <label class="field-label">Address</label>
+      <div class="input-wrapper">
+        <i class="fas fa-home input-icon"></i>
+        <input type="text" class="custom-input"
+          placeholder="Address"
+          [(ngModel)]="address" name="address" />
+      </div>
+    </div>
+
+
+
     <!-- Email -->
     <div class="mb-3">
       <label class="field-label">Email Address</label>
@@ -69,6 +138,8 @@
         </button>
       </div>
     </div>
+
+    
 
     <!-- Sign Up Button -->
     <button class="register-btn" (click)="onRegister()" [disabled]="isLoading">

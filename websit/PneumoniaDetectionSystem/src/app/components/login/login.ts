@@ -19,7 +19,6 @@ export class Login {
 
   onLogin(): void {
     this.errorMessage = '';
-    if (!this.loginData.user_type) { this.errorMessage = 'Please select a user type.'; return; }
     if (!this.loginData.email) { this.errorMessage = 'Please enter your email.'; return; }
     if (!this.loginData.password) { this.errorMessage = 'Please enter your password.'; return; }
 

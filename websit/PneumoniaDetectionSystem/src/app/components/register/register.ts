@@ -11,9 +11,14 @@ import { HttpClient } from '@angular/common/http';
 export class Register {
 
   fullName = '';
+  age = '';
+  phone = '';
   email = '';
   password = '';
   confirmPassword = '';
+  gender = '';
+  address = '';
+  imagePreview: string | null = null;
   isLoading = false;
   errorMessage = '';
   showPassword = false;
@@ -25,6 +30,8 @@ export class Register {
     this.errorMessage = '';
 
     if (!this.fullName) { this.errorMessage = 'Please enter your full name.'; return; }
+    if (!this.age) { this.errorMessage = 'Please enter your age.'; return; }
+    if (!this.phone) { this.errorMessage = 'Please enter your phone number.'; return; }
     if (!this.email) { this.errorMessage = 'Please enter your email.'; return; }
     if (!this.password) { this.errorMessage = 'Please enter a password.'; return; }
     if (this.password.length < 6) { this.errorMessage = 'Password must be at least 6 characters.'; return; }
@@ -34,6 +41,8 @@ export class Register {
 
     const body = {
       name: this.fullName,
+      age: this.age,
+      phone: this.phone,
       email: this.email,
       password: this.password,
       user_type: 'Patient'
@@ -55,4 +64,19 @@ export class Register {
 
   togglePassword(): void { this.showPassword = !this.showPassword; }
   toggleConfirm(): void { this.showConfirm = !this.showConfirm; }
+
+  onImageSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreview = reader.result as string;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  removeImage(): void {
+    this.imagePreview = null;
+  }
 }

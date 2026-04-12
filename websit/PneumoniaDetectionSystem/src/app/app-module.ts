@@ -7,7 +7,6 @@ import { provideHttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Login } from './components/login/login';
-import { Patient } from './components/patient/patient';
 import { AuthGuard } from './guards/auth.guard';
 import { Register } from './components/register/register';
 
@@ -15,7 +14,6 @@ import { Register } from './components/register/register';
   declarations: [
     App,
     Login,
-    Patient,
     Register
   ],
   imports: [

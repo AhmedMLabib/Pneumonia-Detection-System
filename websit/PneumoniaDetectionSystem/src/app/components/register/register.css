@@ -106,3 +106,28 @@
 .login-text { color: #7a9bb5; font-size: 0.85rem; }
 .login-link { color: #4A90E2; font-weight: 700; text-decoration: none; }
 .login-link:hover { text-decoration: underline; }
+
+.preview-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-preview {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #4A90E2;
+}
+
+.btn-remove {
+  display: inline-block;
+  margin-left: 10px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
