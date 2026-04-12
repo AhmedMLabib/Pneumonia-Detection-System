@@ -1,0 +1,123 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.login-page {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #daeeff 0%, #eef6ff 50%, #d6eeff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 20px;
+}
+
+.login-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 8px 32px rgba(74, 144, 226, 0.15);
+}
+
+.logo-img { height: 52px; object-fit: contain; }
+
+.system-title {
+    color: #1a3c5e;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.card-heading {
+    color: #1a3c5e;
+    font-weight: 800;
+    font-size: 1.4rem;
+}
+
+.card-subtitle {
+    color: #7a9bb5;
+    font-size: 0.85rem;
+}
+
+.field-label {
+    color: #1a3c5e;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.custom-input {
+    border: 1.5px solid #d8eaf7;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    padding: 11px 14px 11px 40px;
+    color: #1a3c5e;
+    width: 100%;
+    background: #f4f9ff;
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.custom-input:focus {
+    border-color: #4A90E2;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.12);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7a9bb5;
+    font-size: 0.85rem;
+}
+
+.toggle-pw {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #7a9bb5;
+    cursor: pointer;
+    padding: 0;
+    font-size: 0.9rem;
+}
+.toggle-pw:hover { color: #4A90E2; }
+
+.forgot-link {
+    color: #4A90E2;
+    font-size: 0.82rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+.forgot-link:hover { text-decoration: underline; }
+
+.login-btn {
+    background: linear-gradient(135deg, #4A90E2, #357abd);
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: white;
+    width: 100%;
+    transition: opacity 0.2s;
+}
+.login-btn:hover:not(:disabled) { opacity: 0.9; }
+.login-btn:disabled { opacity: 0.65; }
+
+.signup-text { color: #7a9bb5; font-size: 0.85rem; }
+.signup-link { color: #4A90E2; font-weight: 700; text-decoration: none; }
+.signup-link:hover { text-decoration: underline; }
+
+@media (max-width: 480px) {
+    .login-card { padding: 28px 20px; }
+}

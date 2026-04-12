@@ -1,0 +1,33 @@
+.create-doctor-page {
+  background-color: rgb(234 241 250);
+  min-height: 100vh;
+}
+.back{
+  background-color: rgb(42 103 170);
+}
+.form-container {
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+}
+
+input,
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  background: #3b82f6;
+  border: none;
+}
+button:hover{
+  background-color: #2051a1;
+}
+button:disabled {
+  background: #aaa;
+}
+
+small {
+  font-size: 12px;
+}

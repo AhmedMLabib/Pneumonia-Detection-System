@@ -1,0 +1,175 @@
+.admin-page {
+  background-color: rgb(234 241 250);
+  min-height: 100vh;
+}
+/* Title */
+
+.admin-page .title .txt {
+  font-size: 34px;
+  font-weight: bold;
+  color: rgb(28 51 89);
+}
+.admin-page .title .create-doc-btn {
+  background-color: rgb(42 103 170);
+  font-size: 26px;
+}
+
+/* Count Cards */
+
+.cards .crd {
+  font-size: 32px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+.cards .crd > i {
+  font-size: 50px;
+}
+
+.cards .crd.doctor {
+  background-color: rgb(222, 238, 255);
+  color: rgb(0, 90, 150);
+}
+
+.cards .crd.doctor > i {
+  color: rgb(107 193 250);
+}
+
+.cards .crd.patient {
+  background-color: rgb(216, 255, 219);
+  color: rgb(0, 149, 15);
+}
+.cards .crd.patient > i {
+  color: rgb(134, 205, 141);
+}
+.cards .crd.admin {
+  background-color: rgb(255, 239, 233);
+  color: rgb(255, 149, 0);
+}
+
+.cards .crd.admin > i {
+  color: rgb(253, 196, 117);
+}
+@media (max-width: 767px) {
+  .cards .crd {
+    font-size: 20px;
+  }
+  .cards .crd > i {
+    font-size: 32px;
+  }
+}
+
+/* search */
+
+.search-input,
+.search-select {
+  border: 1px solid #ccc;
+}
+
+.search-btn {
+  background-color: #2b7cff;
+  color: white;
+  border: none;
+}
+
+@media (max-width: 767px) {
+  .search-input {
+    width: 50%;
+  }
+  .search-btn,
+  .search-select {
+    width: 25%;
+  }
+}
+
+/* Table */
+
+.table-container {
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.total {
+  color: rgb(0, 90, 150);
+  font-weight:400;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 2fr;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.table-row.header {
+  font-weight: bold;
+  color: #555;
+  background: #f9fafb;
+}
+
+.user-info {
+  align-items: center;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+}
+
+/* Badges */
+.badge {
+  font-size: 12px;
+}
+
+.badge.admin {
+  background-color: #f59e0b;
+}
+
+.badge.doctor {
+  background-color: #3b82f6;
+}
+
+.badge.patient {
+  background-color: #10b981;
+}
+
+/* Buttons */
+
+.view-btn {
+  background: #3b82f6;
+  border: none;
+}
+
+.delete-btn {
+  background: #ef4444;
+  border: none;
+}
+
+/* Pagination */
+
+.pagination button {
+  border: none;
+  background: #eee;
+}
+
+.pagination .active {
+  background: #3b82f6;
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .table {
+    overflow-x: scroll;
+  }
+  .table-row > div {
+    width: 150px;
+    margin-left: 15px;
+  }
+  .badge {
+    width: 100px;
+  }
+  .table-row > div.email {
+    overflow-x: scroll;
+  }
+}
