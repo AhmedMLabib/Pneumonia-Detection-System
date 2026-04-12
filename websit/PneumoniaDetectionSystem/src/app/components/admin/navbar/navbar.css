@@ -1,0 +1,37 @@
+nav{
+  box-shadow: 0 1px 15px #000;
+}
+nav .left .logo {
+  width: 50px;
+}
+
+.title{
+  color: rgb(29, 68, 123);
+  font-weight: bold;
+  font-size: 20px;
+
+}
+
+.logout-btn {
+  border: 2px solid rgb(29, 68, 123);
+  color: rgb(29, 68, 123);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.logout-btn:hover {
+  background-color: rgb(29, 68, 123);
+  color: #ffffff;
+}
+
+@media(max-width:767px){
+  .title{
+
+  font-size: 18px;
+}
+
+.logout-btn {
+  padding-top: 8px;
+  font-size: 14px;
+}
+}

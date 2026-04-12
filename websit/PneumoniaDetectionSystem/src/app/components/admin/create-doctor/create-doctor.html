@@ -1,0 +1,114 @@
+<div class="create-doctor-page pt-5">
+  <a
+    routerLink="/admin-dashboard"
+    class="back text-decoration-none btn text-light mb-4 ms-5 p-2 rounded-5"
+    >Back To Dashboard</a
+  >
+  <div class="form-container m-auto p-3 bg-light rounded-5">
+    <h2>Create Doctor</h2>
+
+    <form
+      class="d-flex gap-2 flex-column"
+      [formGroup]="doctorForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <!-- Name -->
+      <input
+        class="p-2 rounded-5"
+        type="text"
+        placeholder="Name"
+        formControlName="name"
+      />
+      @if (isInvalid("name")) {
+        <small class="text-danger">Name is required</small>
+      }
+
+      <!-- Email -->
+      <input
+        class="p-2 rounded-5"
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+      />
+      @if (isInvalid("email")) {
+        <small class="text-danger">Valid email is required</small>
+      }
+
+      <!-- Password -->
+      <input
+        class="p-2 rounded-5"
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+      @if (isInvalid("password")) {
+        <small class="text-danger">
+          Password must be at least 6 characters
+        </small>
+      }
+
+      <!-- Age -->
+      <input
+        class="p-2 rounded-5"
+        type="number"
+        placeholder="Age"
+        formControlName="age"
+      />
+      @if (isInvalid("age")) {
+        <small class="text-danger">Age is required (18-80)</small>
+      }
+
+      <!-- Phone -->
+      <input
+        class="p-2 rounded-5"
+        type="text"
+        placeholder="Phone"
+        formControlName="phone"
+      />
+      @if (isInvalid("phone")) {
+        <small class="text-danger">Valid phone is required</small>
+      }
+
+      <!-- Gender -->
+      <select class="p-2 rounded-5" formControlName="gender">
+        <option value="">Select Gender</option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+      </select>
+      @if (isInvalid("gender")) {
+        <small class="text-danger">Gender is required</small>
+      }
+
+      <!-- Address -->
+      <input
+        class="p-2 rounded-5"
+        type="text"
+        placeholder="Address"
+        formControlName="address"
+      />
+      @if (isInvalid("address")) {
+        <small class="text-danger">Address is required</small>
+      }
+      <!-- upload image -->
+      <input
+        class="p-2 rounded-5"
+        type="file"
+        placeholder="Upload Image"
+        formControlName="image"
+        (change)="onFileChange($event)"
+      />
+      @if (isInvalid("image")) {
+        <small class="text-danger">Image is required</small>
+      }
+
+      <!-- Submit -->
+      <button
+        class="rounded-5 btn text-light p-2"
+        type="submit"
+        [disabled]="doctorForm.invalid"
+      >
+        Create Doctor
+      </button>
+    </form>
+  </div>
+</div>

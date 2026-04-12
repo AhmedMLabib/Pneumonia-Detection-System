@@ -1,0 +1,165 @@
+<div class="admin-page">
+  <app-navbar></app-navbar>
+  <div class="container m-auto">
+    <!-- Title -->
+    <div class="title my-4">
+      <p class="txt">Admin Dashboard</p>
+      <a class="create-doc-btn text-light btn" routerLink="/create-doctor"
+        >+ Create Doctor</a
+      >
+    </div>
+    <!-- Count Cards -->
+    <div
+      class="cards d-flex justify-content-around flex-wrap bg-light rounded-3 py-2 px-3 text-center w-100"
+    >
+      <div class="crd doctor rounded-3 py-1 w-25 text-center">
+        <i class="fa-solid fa-stethoscope mt-3"></i>
+        <p class="num m-0">{{ typesCount.doctor }}</p>
+        <p>Doctor</p>
+      </div>
+      <div class="crd patient rounded-3 py-1 w-25 text-center">
+        <i class="fa-solid fa-user mt-3"></i>
+
+        <p class="num m-0">{{ typesCount.patient }}</p>
+        <p>Patient</p>
+      </div>
+      <div class="crd admin rounded-3 py-1 w-25 text-center">
+        <i class="fa-solid fa-shield-heart mt-3"></i>
+        <p class="num m-0">{{ typesCount.admin }}</p>
+        <p>admin</p>
+      </div>
+    </div>
+
+    <!-- Search -->
+    <div class="search-container my-3">
+      <form [formGroup]="searchForm" class="search-form d-flex gap-1">
+        <input
+          type="text"
+          formControlName="query"
+          placeholder="Search by name or email..."
+          class="search-input p-2 rounded-2 w-sm-50"
+        />
+
+        <select formControlName="role" class="search-select p-2 rounded-2">
+          <option value="">All Roles</option>
+          <option value="admin">Admin</option>
+          <option value="doctor">Doctor</option>
+          <option value="patient">Patient</option>
+        </select>
+
+        <button
+          type="button"
+          (click)="onSearch()"
+          class="search-btn py-2 px-3 rounded-2 btn"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+
+    <!-- Results -->
+    <div class="table-container p-3 rounded-3">
+      <div class="table-header mb-3">
+        <h2>
+          Users List:
+          @if (users) {
+            <span class="total">({{ users.length }} Users)</span>
+          }
+        </h2>
+      </div>
+
+      <div class="table w-100">
+        <!-- Header -->
+        <div class="table-row header rounded-3 p-3">
+          <div>User</div>
+          <div>Email</div>
+          <div>Role</div>
+          <div>Action</div>
+        </div>
+
+        <!-- Rows -->
+        @for (user of paginatedUsers; track $index) {
+          <div class="table-row p-3 w-100">
+            <!-- User Info -->
+            <div class="user-info d-flex gap-1">
+              <img [src]="static_url + user.image" class="avatar" />
+              <span>{{ user.name }}</span>
+            </div>
+
+            <div class="email">{{ user.email }}</div>
+
+            <!-- Role Badge -->
+            <div>
+              <span
+                class="badge text-light rounded-5 py-2 px-3"
+                [ngClass]="{
+                  admin: user.user_type === 'admin',
+                  doctor: user.user_type === 'doctor',
+                  patient: user.user_type === 'patient',
+                }"
+              >
+                {{ user.user_type }}
+              </span>
+            </div>
+
+            <!-- Actions -->
+            <div class="actions d-flex gap-2">
+              <button
+                class="view-btn text-light py-2 px-3 rounded-5 btn"
+                (click)="openUser(user)"
+              >
+                View
+              </button>
+
+              <button
+                class="delete-btn text-light py-2 px-3 rounded-5 btn"
+                (click)="deleteUser(user)"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination mt-4 d-flex justify-content-center gap-2">
+        <!-- Prev -->
+        <button
+          class="btn rounded-5 py-2 px-3"
+          (click)="prevPage()"
+          [disabled]="currentPage === 1"
+        >
+          Prev
+        </button>
+        <!-- Page Numbers -->
+        <button
+          class="btn rounded-5 py-2 px-3"
+          *ngFor="let page of getPages()"
+          [class.active]="page === currentPage"
+          (click)="goToPage(page)"
+        >
+          {{ page }}
+        </button>
+        <!-- Next -->
+        <button
+          class="btn rounded-5 py-2 px-3"
+          (click)="nextPage()"
+          [disabled]="currentPage === totalPages"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table Button -->
+
+  <!-- Modal -->
+  @if (selectedUser) {
+    <app-user-details
+      [user]="selectedUser!"
+      (close)="closeModal()"
+    ></app-user-details>
+  }
+</div>

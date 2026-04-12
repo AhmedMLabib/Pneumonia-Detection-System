@@ -1,0 +1,53 @@
+<div
+  class="modal-overlay d-flex justify-content-center align-items-center"
+  (click)="onClose()"
+>
+  <div
+    class="modal bg-light rounded-5 d-block p-2"
+    (click)="$event.stopPropagation()"
+  >
+    <span class="close-btn" (click)="onClose()">✖</span>
+
+    <div class="modal-header d-flex align-items-center gap-3 mb-3">
+      <img [src]="static_url + user.image" class="user-img" />
+
+      <div class="user-basic">
+        <h2 class="m-0">{{ user.name }}</h2>
+        <span class="role-badge text-light rounded-5 py-1 px-2">{{
+          user.user_type
+        }}</span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="info-grid d-grid gap-3">
+        <div class="info-item p-2 rounded-5">
+          <span class="label">Email</span>
+          <span class="value">{{ user.email }}</span>
+        </div>
+
+        <div class="info-item p-2 rounded-5">
+          <span class="label">Phone</span>
+          <span class="value">{{ user.phone }}</span>
+        </div>
+
+        <div class="info-item p-2 rounded-5">
+          <span class="label">Age</span>
+          <span class="value">{{ user.age }}</span>
+        </div>
+
+        <div class="info-item p-2 rounded-5">
+          <span class="label">Address</span>
+          <span class="value">{{ user.address }}</span>
+        </div>
+
+        <div class="info-item p-2 rounded-5">
+          <span class="label">Next Check</span>
+          <span class="value">
+            {{ user.next_check ? user.next_check : "Not scheduled" }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

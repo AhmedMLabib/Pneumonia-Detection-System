@@ -1,21 +1,20 @@
 import { Component } from '@angular/core';
+import { Auth, LoginRequest } from '../../services/auth';
 import { Router } from '@angular/router';
-import { AuthService, LoginRequest } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: false,
   templateUrl: './login.html',
-  styleUrl: './login.css'
+  styleUrl: './login.css',
 })
 export class Login {
-
-  loginData: LoginRequest = { email: '', password: '', user_type: '' };
+loginData: LoginRequest = { email: '', password: '' };
   isLoading = false;
   errorMessage = '';
   showPassword = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: Auth, private router: Router) {}
 
   onLogin(): void {
     this.errorMessage = '';
@@ -26,9 +25,9 @@ export class Login {
     this.authService.login(this.loginData).subscribe({
       next: (res) => {
         this.isLoading = false;
-        const type = res.user_type ? res.user_type.toLowerCase() : '';
+        const type = res.user.user_type ? res.user.user_type.toLowerCase() : '';
         if (type === 'patient') this.router.navigate(['/patient']);
-        else if (type === 'admin') this.router.navigate(['/admin']);
+        else if (type === 'admin') this.router.navigate(['/admin-dashboard']);
         else if (type === 'doctor') this.router.navigate(['/doctor']);
         else this.errorMessage = 'Unknown user type.';
       },
