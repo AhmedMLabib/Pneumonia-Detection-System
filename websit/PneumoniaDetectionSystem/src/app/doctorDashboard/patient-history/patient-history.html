@@ -1,0 +1,60 @@
+<div class="patient-history" >
+
+    <a class="back" routerLink="/doctor-dashboard">
+        &laquo; Back To Dashboard
+    </a>
+
+    <h2>Patient History : {{ patient?.name }}</h2>
+
+    <!-- Patient Info -->
+    <div class="history-details">
+        <img *ngIf="patient?.image" [src]="getImageUrl(patient?.image)">
+        <ng-template #noHistoryImage>
+            <div class="no-image">No image</div>
+        </ng-template>
+
+        <div class="info">
+            <p>{{ patient?.name }}</p>
+            <p>{{ patient?.age }}</p>
+            <p>{{ patient?.email }}</p>
+        </div>
+    </div>
+
+    <!-- Reports -->
+    <h2>Assessment History</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Assessment Type</th>
+                <th>Result</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let report of reports">
+                <td>{{ report.date }}</td>
+
+                <td>{{ report.check_type }}</td>
+
+                <td>
+                    <span class="result-badge"
+                        [ngClass]="report.diagnosis === 'Pneumonia' ? 'pneumonia' : 'normal'">
+                        {{ report.diagnosis }}
+                    </span>
+                </td>
+
+                <td>
+                    <a class="btn"
+                        [href]="'http://localhost:3000/' + report.report_url"
+                        target="_blank">
+                            View Report
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

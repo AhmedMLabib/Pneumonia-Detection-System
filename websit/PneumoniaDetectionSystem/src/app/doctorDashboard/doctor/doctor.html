@@ -1,0 +1,88 @@
+<app-nav-bar></app-nav-bar>
+<div class="doctor-dashboard">
+    <h2>Doctor Dashboard</h2>
+    <div class="search-bar">
+        <form class="d-flex" role="search" (submit)="$event.preventDefault()">
+            <input class="form-control me-2" type="search" placeholder="Search Patients..." aria-label="Search"
+                (input)="onSearch($event.target.value)" />
+        </form>
+    </div>
+    <div class="patient-list">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Patient List</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let patient of paginatedPatients">
+                <td>
+                    <div class="patient-card">
+                        <img *ngIf="patient.image" [src]="'http://localhost:3000//' + patient.image">
+                        <div class="patient-info">
+                            <span class="name">{{patient.name}}</span>
+                            <span class="email">{{patient.email}}</span>
+                        </div>
+                    </div>
+                </td>
+                <td>{{patient.age}}</td>
+                <td><a class="btn"
+                    [routerLink]="['/patient-history', patient.id]"
+                    [state]="{ patient: patient }">
+                    View History
+                    </a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--  pagination -->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            
+            <li class="page-item" [class.disabled]="currentPage === 1">
+                <a class="page-link" (click)="changePage(currentPage - 1)">&laquo;</a>
+            </li>
+
+            <li class="page-item">
+                <a class="page-link"
+                    [class.active]="currentPage === 1"
+                    (click)="changePage(1)">1</a>
+            </li>
+
+            <li class="page-item" *ngIf="currentPage > 3">
+                <span class="page-link">...</span>
+            </li>
+
+            <li class="page-item" *ngFor="let page of visiblePages">
+                <a class="page-link"
+                    [class.active]="page === currentPage"
+                    (click)="changePage(page)">
+                    {{ page }}
+                </a>
+            </li>
+
+            <li class="page-item" *ngIf="currentPage < totalPages - 2">
+                <span class="page-link">...</span>
+            </li>
+
+            <li class="page-item" *ngIf="totalPages > 1">
+                <a class="page-link"
+                    [class.active]="currentPage === totalPages"
+                    (click)="changePage(totalPages)">
+                    {{ totalPages }}
+                </a>
+            </li>
+
+            <li class="page-item" [class.disabled]="currentPage === totalPages">
+                <a class="page-link" (click)="changePage(currentPage + 1)">&raquo;</a>
+            </li>
+
+        </ul>
+    </nav>
+
+</div>
+</div>

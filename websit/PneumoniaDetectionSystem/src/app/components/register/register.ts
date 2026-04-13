@@ -6,16 +6,11 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-register',
   standalone: false,
   templateUrl: './register.html',
-<<<<<<< HEAD
-  styleUrl: './register.css'
-})
-export class Register {
 
-=======
   styleUrl: './register.css',
 })
 export class Register {
->>>>>>> origin/Admin-dashboard
+
   fullName = '';
   age = '';
   phone = '';
@@ -30,9 +25,6 @@ export class Register {
   showPassword = false;
   showConfirm = false;
 
-<<<<<<< HEAD
-  constructor(private http: HttpClient, private router: Router) {}
-=======
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -44,20 +36,12 @@ export class Register {
       this.selectedFile = event.target.files[0];
     }
   }
->>>>>>> origin/Admin-dashboard
+
 
   onRegister(): void {
     this.errorMessage = '';
 
-<<<<<<< HEAD
-    if (!this.fullName) { this.errorMessage = 'Please enter your full name.'; return; }
-    if (!this.age) { this.errorMessage = 'Please enter your age.'; return; }
-    if (!this.phone) { this.errorMessage = 'Please enter your phone number.'; return; }
-    if (!this.email) { this.errorMessage = 'Please enter your email.'; return; }
-    if (!this.password) { this.errorMessage = 'Please enter a password.'; return; }
-    if (this.password.length < 6) { this.errorMessage = 'Password must be at least 6 characters.'; return; }
-    if (this.password !== this.confirmPassword) { this.errorMessage = 'Passwords do not match.'; return; }
-=======
+
     if (!this.fullName) {
       this.errorMessage = 'Please enter your full name.';
       return;
@@ -86,7 +70,6 @@ export class Register {
       this.errorMessage = 'Passwords do not match.';
       return;
     }
->>>>>>> origin/Admin-dashboard
 
     this.isLoading = true;
 
@@ -96,12 +79,6 @@ export class Register {
       phone: this.phone,
       email: this.email,
       password: this.password,
-<<<<<<< HEAD
-      user_type: 'Patient'
-    };
-
-    this.http.post<any>('http://localhost:3000/api/register', body).subscribe({
-=======
       gender: this.gender,
       address: this.address,
       image: this.imagePreview,
@@ -122,7 +99,6 @@ export class Register {
     }
 
     this.http.post<any>('http://localhost:3000/user/register', fd).subscribe({
->>>>>>> origin/Admin-dashboard
       next: () => {
         this.isLoading = false;
         this.router.navigate(['/login']);
@@ -130,16 +106,7 @@ export class Register {
       error: (err) => {
         this.isLoading = false;
         if (err.status === 0) this.errorMessage = 'Cannot connect to server.';
-<<<<<<< HEAD
-        else if (err.status === 409) this.errorMessage = 'Email already registered.';
-        else this.errorMessage = err.error?.message || 'Registration failed. Please try again.';
-      }
-    });
-  }
 
-  togglePassword(): void { this.showPassword = !this.showPassword; }
-  toggleConfirm(): void { this.showConfirm = !this.showConfirm; }
-=======
         else if (err.status === 409)
           this.errorMessage = 'Email already registered.';
         else
@@ -155,7 +122,6 @@ export class Register {
   toggleConfirm(): void {
     this.showConfirm = !this.showConfirm;
   }
->>>>>>> origin/Admin-dashboard
 
   onImageSelected(event: any): void {
     const file = event.target.files[0];

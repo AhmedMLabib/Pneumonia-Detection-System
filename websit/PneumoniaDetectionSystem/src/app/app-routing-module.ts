@@ -6,6 +6,9 @@ import { adminGuardGuard } from './guards/admin-guard-guard';
 import { CreateDoctor } from './components/admin/create-doctor/create-doctor';
 import { Login } from './components/login/login';
 import { Register } from './components/register/register';
+import { Doctor } from './doctorDashboard/doctor/doctor';
+import { DoctorGuard } from './guards/doctor-guard';
+import { PatientHistory } from './doctorDashboard/patient-history/patient-history';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,6 +23,16 @@ const routes: Routes = [
     path: 'create-doctor',
     component: CreateDoctor,
     canActivate: [adminGuardGuard],
+  },
+  {
+    path: 'doctor-dashboard',
+    component: Doctor,
+    canActivate: [DoctorGuard],
+  },
+  {
+    path: 'patient-history/:id',
+    component: PatientHistory,
+    canActivate: [DoctorGuard],
   },
   { path: '**', redirectTo: 'login' }
 ];

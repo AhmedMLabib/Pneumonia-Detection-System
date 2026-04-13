@@ -1,27 +1,18 @@
 <div class="register-page">
   <div class="register-card">
-<<<<<<< HEAD
-
-    <!-- Logo -->
-    <div class="text-center mb-4">
-      <img src="assets/logo.png" alt="Logo" class="logo-img">
-=======
     <!-- Logo -->
     <div class="text-center mb-4">
       <img src="logo.png" alt="Logo" class="logo-img" />
->>>>>>> origin/Admin-dashboard
       <div class="system-title mt-1">Pneumonia Detector</div>
     </div>
 
     <!-- Heading -->
     <h5 class="card-heading text-center mb-1">Create Your Account</h5>
-<<<<<<< HEAD
-    <p class="card-subtitle text-center mb-4">Sign up to start assessing your respiratory health.</p>
-=======
+
     <p class="card-subtitle text-center mb-4">
       Sign up to start assessing your respiratory health.
     </p>
->>>>>>> origin/Admin-dashboard
+
 
     <!-- Error -->
     <div class="alert alert-danger py-2 mb-3" *ngIf="errorMessage">
@@ -33,11 +24,7 @@
       <label class="field-label">Full Name</label>
       <div class="input-wrapper">
         <i class="fas fa-user input-icon"></i>
-<<<<<<< HEAD
-        <input type="text" class="custom-input"
-          placeholder="Full Name"
-          [(ngModel)]="fullName" name="fullName" />
-=======
+
         <input
           type="text"
           class="custom-input"
@@ -45,7 +32,7 @@
           [(ngModel)]="fullName"
           name="fullName"
         />
->>>>>>> origin/Admin-dashboard
+
       </div>
     </div>
 
@@ -54,11 +41,7 @@
       <label class="field-label">Age</label>
       <div class="input-wrapper">
         <i class="fas fa-birthday-cake input-icon"></i>
-<<<<<<< HEAD
-        <input type="number" class="custom-input"
-          placeholder="Age"
-          [(ngModel)]="age" name="age" />
-=======
+
         <input
           type="number"
           class="custom-input"
@@ -66,7 +49,7 @@
           [(ngModel)]="age"
           name="age"
         />
->>>>>>> origin/Admin-dashboard
+
       </div>
     </div>
 
@@ -75,11 +58,7 @@
       <label class="field-label">Phone Number</label>
       <div class="input-wrapper">
         <i class="fas fa-phone input-icon"></i>
-<<<<<<< HEAD
-        <input type="tel" class="custom-input"
-          placeholder="Phone Number"
-          [(ngModel)]="phone" name="phone" />
-=======
+
         <input
           type="tel"
           class="custom-input"
@@ -87,118 +66,12 @@
           [(ngModel)]="phone"
           name="phone"
         />
->>>>>>> origin/Admin-dashboard
+
       </div>
     </div>
 
     <div class="mb-3">
-<<<<<<< HEAD
-  <label class="field-label">Profile Image</label>
-  <div class="input-wrapper">
-    <i class="fas fa-image input-icon"></i>
-    <input 
-      type="file" 
-      class="custom-input" 
-      accept="image/*"
-      (change)="onImageSelected($event)"
-    />
-  </div>
-  
-  <!-- Preview uploaded image -->
-  @if (imagePreview) {
-    <div class="preview-container mt-2">
-      <img [src]="imagePreview" alt="Profile Preview" class="profile-preview"/>
-      <button type="button" class="btn-remove" (click)="removeImage()">Remove</button>
-    </div>
-  }
 
-    <!-- gender -->
-    <div class="mb-3">
-      <label class="field-label">Gender</label>
-      <div class="input-wrapper">
-        <i class="fas fa-venus-mars input-icon"></i>
-        <select class="custom-input" [(ngModel)]="gender" name="gender">
-          <option value="">Select Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- Address -->
-    <div class="mb-3">
-      <label class="field-label">Address</label>
-      <div class="input-wrapper">
-        <i class="fas fa-home input-icon"></i>
-        <input type="text" class="custom-input"
-          placeholder="Address"
-          [(ngModel)]="address" name="address" />
-      </div>
-    </div>
-
-
-
-    <!-- Email -->
-    <div class="mb-3">
-      <label class="field-label">Email Address</label>
-      <div class="input-wrapper">
-        <i class="fas fa-envelope input-icon"></i>
-        <input type="email" class="custom-input"
-          placeholder="Email Address"
-          [(ngModel)]="email" name="email" />
-      </div>
-    </div>
-
-    <!-- Password -->
-    <div class="mb-3">
-      <label class="field-label">Password</label>
-      <div class="input-wrapper">
-        <i class="fas fa-lock input-icon"></i>
-        <input [type]="showPassword ? 'text' : 'password'"
-          class="custom-input"
-          placeholder="Password"
-          [(ngModel)]="password" name="password"
-          style="padding-right: 40px;" />
-        <button class="toggle-pw" type="button" (click)="togglePassword()">
-          <i class="fas" [class.fa-eye]="!showPassword" [class.fa-eye-slash]="showPassword"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- Confirm Password -->
-    <div class="mb-4">
-      <label class="field-label">Confirm Password</label>
-      <div class="input-wrapper">
-        <i class="fas fa-lock input-icon"></i>
-        <input [type]="showConfirm ? 'text' : 'password'"
-          class="custom-input"
-          placeholder="Confirm Password"
-          [(ngModel)]="confirmPassword" name="confirmPassword"
-          style="padding-right: 40px;" />
-        <button class="toggle-pw" type="button" (click)="toggleConfirm()">
-          <i class="fas" [class.fa-eye]="!showConfirm" [class.fa-eye-slash]="showConfirm"></i>
-        </button>
-      </div>
-    </div>
-
-    
-
-    <!-- Sign Up Button -->
-    <button class="register-btn" (click)="onRegister()" [disabled]="isLoading">
-      <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2"></span>
-      {{ isLoading ? 'Creating account...' : 'Sign Up' }}
-    </button>
-
-    <!-- Login Link -->
-    <p class="text-center mt-3 login-text">
-      Already have an account?
-      <a routerLink="/login" class="login-link">Login</a>
-    </p>
-
-  </div>
-</div>
-=======
       <label class="field-label">Profile Image</label>
       <div class="input-wrapper">
         <i class="fas fa-image input-icon"></i>
@@ -336,4 +209,4 @@
     </div>
   </div>
 </div>
->>>>>>> origin/Admin-dashboard
+
