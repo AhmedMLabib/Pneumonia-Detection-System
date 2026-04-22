@@ -28,7 +28,7 @@ loginData: LoginRequest = { email: '', password: '' };
         const type = res.user.user_type ? res.user.user_type.toLowerCase() : '';
         if (type === 'patient') this.router.navigate(['/patient']);
         else if (type === 'admin') this.router.navigate(['/admin-dashboard']);
-        else if (type === 'doctor') this.router.navigate(['/doctor']);
+        else if (type === 'doctor') this.router.navigate(['/doctor-dashboard']);
         else this.errorMessage = 'Unknown user type.';
       },
       error: (err) => {

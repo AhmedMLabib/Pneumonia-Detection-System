@@ -22,8 +22,7 @@ def create_report(report_data):
   path = os.path.join('reports', new_filename)
   
   pdfkit.from_string(rendered, path)
-  return path
-
+  return new_filename
 
 def predict_from_form(user_id):
   try:

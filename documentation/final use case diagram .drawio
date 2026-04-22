@@ -1,0 +1,180 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="Use Case Diagram" id="PneumoniaDetectionSystem">
+    <mxGraphModel dx="1158" dy="733" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="boundary" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#1e4d8c;strokeWidth=2;verticalAlign=top;fontSize=15;fontStyle=1;fontColor=#1e4d8c;" value="Pneumonia Detection System" vertex="1">
+          <mxGeometry height="1060" width="1820" x="180" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="actor_user" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=13;fontStyle=1;" value="User" vertex="1">
+          <mxGeometry height="70" width="40" x="55" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_home" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="View Home Page" vertex="1">
+          <mxGeometry height="55" width="160" x="250" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_health_info" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;" value="View Health Info" vertex="1">
+          <mxGeometry height="55" width="160" x="500" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_navigate_services" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;" value="Navigate to Services" vertex="1">
+          <mxGeometry height="55" width="160" x="500" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_login_register" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;" value="Login / Register" vertex="1">
+          <mxGeometry height="55" width="160" x="500" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_upload_xray" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;" value="Upload Chest X-Ray" vertex="1">
+          <mxGeometry height="55" width="160" x="500" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_check_login_xray" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="Check Login" vertex="1">
+          <mxGeometry height="55" width="160" x="760" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_analyze_xray" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;" value="Run AI Model&#xa;(X-Ray)" vertex="1">
+          <mxGeometry height="55" width="160" x="1020" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_result_xray" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="View Result&#xa;(X-Ray)" vertex="1">
+          <mxGeometry height="55" width="160" x="1280" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_history_xray" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;" value="View History&#xa;(X-Ray)" vertex="1">
+          <mxGeometry height="55" width="160" x="1540" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_report_xray" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;" value="Download Report&#xa;(X-Ray)" vertex="1">
+          <mxGeometry height="55" width="160" x="1540" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_submit_symptom" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;" value="Submit Symptom&#xa;Checker" vertex="1">
+          <mxGeometry height="55" width="160" x="500" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_check_login_sym" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="Check Login" vertex="1">
+          <mxGeometry height="55" width="160" x="760" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_analyze_sym" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;" value="Run AI Model&#xa;(Symptoms)" vertex="1">
+          <mxGeometry height="55" width="160" x="1020" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_result_sym" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="View Result&#xa;(Symptoms)" vertex="1">
+          <mxGeometry height="55" width="160" x="1280" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_history_sym" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;" value="View History&#xa;(Symptoms)" vertex="1">
+          <mxGeometry height="55" width="160" x="1540" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_report_sym" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;" value="Download Report&#xa;(Symptoms)" vertex="1">
+          <mxGeometry height="55" width="160" x="1540" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="actor_doctor" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=13;fontStyle=1;" value="Doctor" vertex="1">
+          <mxGeometry height="70" width="40" x="55" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_doctor_login" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;" value="Login" vertex="1">
+          <mxGeometry height="55" width="160" x="250" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_view_patients" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;fillColor=#f8cecc;strokeColor=#b85450;" value="View Patients List" vertex="1">
+          <mxGeometry height="55" width="160" x="500" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_view_patient_history" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;fillColor=#f8cecc;strokeColor=#b85450;" value="View Patient&#xa;History" vertex="1">
+          <mxGeometry height="55" width="160" x="760" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_view_patient_report" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;fillColor=#f8cecc;strokeColor=#b85450;" value="View Patient&#xa;Report" vertex="1">
+          <mxGeometry height="55" width="160" x="1020" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="actor_admin" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=13;fontStyle=1;" value="Admin" vertex="1">
+          <mxGeometry height="70" width="40" x="2090" y="935" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_admin_login" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;" value="Login" vertex="1">
+          <mxGeometry height="55" width="160" x="1780" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_manage_users" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" value="Manage Users" vertex="1">
+          <mxGeometry height="55" width="160" x="1520" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_delete_user" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Delete User" vertex="1">
+          <mxGeometry height="55" width="160" x="1190" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_create_doctor" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Create Doctor&#xa;Account" vertex="1">
+          <mxGeometry height="55" width="160" x="1190" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="e_user_home" edge="1" parent="1" source="actor_user" style="endArrow=none;" target="uc_home">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_home_healthinfo" edge="1" parent="1" source="uc_home" style="endArrow=none;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uc_health_info">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_home_services" edge="1" parent="1" style="endArrow=none;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="uc_navigate_services">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="490" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_home_login" edge="1" parent="1" source="uc_home" style="endArrow=none;" target="uc_login_register">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_home_xray" edge="1" parent="1" source="uc_home" style="endArrow=none;exitX=0.561;exitY=-0.03;exitDx=0;exitDy=0;exitPerimeter=0;" target="uc_upload_xray">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_home_sym" edge="1" parent="1" source="uc_home" style="endArrow=none;" target="uc_submit_symptom">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_xray_checklogin" edge="1" parent="1" source="uc_upload_xray" style="dashed=1;endArrow=open;endFill=0;fontSize=11;" target="uc_check_login_xray" value="&lt;&lt;include&gt;&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_checklogin_xray_loginreg" edge="1" parent="1" source="uc_check_login_xray" style="dashed=1;endArrow=open;endFill=0;fontSize=11;" target="uc_login_register" value="&lt;&lt;extend&gt;&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_checklogin_xray_ai" edge="1" parent="1" source="uc_check_login_xray" style="endArrow=open;endFill=0;" target="uc_analyze_xray">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ai_xray_result" edge="1" parent="1" source="uc_analyze_xray" style="dashed=1;endArrow=open;endFill=0;fontSize=11;" target="uc_result_xray" value="&lt;&lt;include&gt;&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_result_xray_history" edge="1" parent="1" source="uc_result_xray" style="dashed=1;endArrow=open;endFill=0;fontSize=11;" target="uc_history_xray" value="&lt;&lt;extend&gt;&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_result_xray_report" edge="1" parent="1" source="uc_result_xray" style="dashed=1;endArrow=open;endFill=0;fontSize=11;" target="uc_report_xray" value="&lt;&lt;extend&gt;&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sym_checklogin" edge="1" parent="1" source="uc_submit_symptom" style="dashed=1;endArrow=open;endFill=0;fontSize=11;" target="uc_check_login_sym" value="&lt;&lt;include&gt;&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_checklogin_sym_loginreg" edge="1" parent="1" source="uc_check_login_sym" style="dashed=1;endArrow=open;endFill=0;fontSize=11;" target="uc_login_register" value="&lt;&lt;extend&gt;&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_checklogin_sym_ai" edge="1" parent="1" source="uc_check_login_sym" style="endArrow=open;endFill=0;" target="uc_analyze_sym">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ai_sym_result" edge="1" parent="1" source="uc_analyze_sym" style="dashed=1;endArrow=open;endFill=0;fontSize=11;" target="uc_result_sym" value="&lt;&lt;include&gt;&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_result_sym_history" edge="1" parent="1" source="uc_result_sym" style="dashed=1;endArrow=open;endFill=0;fontSize=11;" target="uc_history_sym" value="&lt;&lt;extend&gt;&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_result_sym_report" edge="1" parent="1" source="uc_result_sym" style="dashed=1;endArrow=open;endFill=0;fontSize=11;" target="uc_report_sym" value="&lt;&lt;extend&gt;&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_doctor_login" edge="1" parent="1" source="actor_doctor" style="endArrow=none;" target="uc_doctor_login">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_doclogin_patients" edge="1" parent="1" source="uc_doctor_login" style="endArrow=open;endFill=0;" target="uc_view_patients">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_patients_history" edge="1" parent="1" source="uc_view_patients" style="dashed=1;endArrow=open;endFill=0;fontSize=11;" target="uc_view_patient_history" value="&lt;&lt;include&gt;&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pathistory_report" edge="1" parent="1" source="uc_view_patient_history" style="dashed=1;endArrow=open;endFill=0;fontSize=11;" target="uc_view_patient_report" value="&lt;&lt;include&gt;&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_admin_login" edge="1" parent="1" source="actor_admin" style="endArrow=none;" target="uc_admin_login">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_adminlogin_manage" edge="1" parent="1" source="uc_admin_login" style="endArrow=open;endFill=0;" target="uc_manage_users">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NC18KIpjFWNff2tK0ISg-11" edge="1" parent="1" source="uc_manage_users" style="dashed=1;endArrow=open;endFill=0;fontSize=11;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="uc_delete_user" value="&lt;&lt;extend&gt;&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1602" y="1082" as="sourcePoint" />
+            <mxPoint x="1420" y="970" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NC18KIpjFWNff2tK0ISg-12" edge="1" parent="1" source="uc_manage_users" style="dashed=1;endArrow=open;endFill=0;fontSize=11;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="uc_create_doctor" value="&lt;&lt;extend&gt;&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1672" y="1152" as="sourcePoint" />
+            <mxPoint x="1490" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

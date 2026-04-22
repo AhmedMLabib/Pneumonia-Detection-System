@@ -217,7 +217,7 @@ def get_users_names(current_user_id):
   doctor = User.query.get(current_user_id)
   if not doctor or doctor.user_type != 'doctor':
     return jsonify({"message": "Only doctors can access this resource"}), 403
-  users = User.query.filter_by(user_type="user").all()
+  users = User.query.filter_by(user_type="patient").all()
   users_list = []
   for user in users:
     users_list.append({

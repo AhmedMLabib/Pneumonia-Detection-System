@@ -12,6 +12,9 @@ import { Login } from './components/login/login';
 import { Register } from './components/register/register';
 import { Auth } from './services/auth';
 import { provideHttpClient } from '@angular/common/http';
+import { Doctor } from './components/doctorDashboard/doctor/doctor';
+import { NavBar } from './components/doctorDashboard/nav-bar/nav-bar';
+import { PatientHistory } from './components/doctorDashboard/patient-history/patient-history';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,10 @@ import { provideHttpClient } from '@angular/common/http';
     UserDetails,
     Login,
     Register,
+    Doctor,
+    NavBar,
+    PatientHistory,
+    
     
   ],
   imports: [

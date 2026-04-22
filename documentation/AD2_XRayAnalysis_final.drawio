@@ -1,0 +1,157 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="AD2 - X-Ray Analysis Flow" id="AD2_XRay">
+    <mxGraphModel dx="1895" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lane_user" parent="1" style="swimlane;startSize=30;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=13;" value="User" vertex="1">
+          <mxGeometry height="1480" width="210" x="30" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="b5b" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Redirect to Login Page" vertex="1">
+          <mxGeometry height="45" width="155" x="25" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="b6b" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Show Error Message&#xa;(invalid format/size)" vertex="1">
+          <mxGeometry height="50" width="155" x="25" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_user" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="90" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Open X-Ray Analysis Page" vertex="1">
+          <mxGeometry height="45" width="175" x="15" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="lane_user" source="start" style="endArrow=block;endFill=1;" target="b1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Upload Chest X-Ray Image&#xa;(click upload button)" vertex="1">
+          <mxGeometry height="50" width="175" x="15" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="lane_user" source="b1" style="endArrow=block;endFill=1;" target="b2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Preview Image&#xa;(displayed in UI)" vertex="1">
+          <mxGeometry height="45" width="175" x="15" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="lane_user" source="b2" style="endArrow=block;endFill=1;" target="b3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b4" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Click &#39;Analyze&#39;" vertex="1">
+          <mxGeometry height="45" width="175" x="15" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="lane_user" source="b3" style="endArrow=block;endFill=1;" target="b4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uszhKULulR2IExDqkkXf-1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Display Result Page:&lt;br&gt;• Result (Pneumonia / Normal)&lt;br&gt;• Medical Recommendations&lt;br&gt;• Disclaimer" vertex="1">
+          <mxGeometry height="80" width="155" x="27.5" y="1312.5" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_system" parent="1" style="swimlane;startSize=30;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=13;" value="System" vertex="1">
+          <mxGeometry height="1480" width="370" x="250" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="b6" parent="lane_system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Validate Image:&#xa;• Format (JPG/PNG)&#xa;• File size check" vertex="1">
+          <mxGeometry height="60" width="155" x="97.5" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="b7" parent="lane_system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Send POST /predict/image&#xa;{access_token, image}" vertex="1">
+          <mxGeometry height="50" width="155" x="80" y="715" as="geometry" />
+        </mxCell>
+        <mxCell id="b11a" parent="lane_system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Return:&lt;br&gt;diagnosis = Pneumonia Detected&lt;br&gt;advice" vertex="1">
+          <mxGeometry height="65" width="160" x="195" y="1070" as="geometry" />
+        </mxCell>
+        <mxCell id="b15" parent="lane_system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Generate PDF Report:&#xa;Patient Name, Date,&#xa;Assessment Type=X-Ray,&#xa;Result, Advice, Disclaimer" vertex="1">
+          <mxGeometry height="65" width="155" x="98" y="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="e11a" edge="1" parent="lane_system" source="b11a" style="endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="1320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b11b" parent="lane_system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Return:&lt;br&gt;diagnosis = Normal&lt;br&gt;advice" vertex="1">
+          <mxGeometry height="65" width="150" x="10" y="1070" as="geometry" />
+        </mxCell>
+        <mxCell id="e11b" edge="1" parent="lane_system" source="b11b" style="endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140" y="1320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lane_cnn" parent="1" style="swimlane;startSize=30;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=13;" value="CNN Model" vertex="1">
+          <mxGeometry height="1480" width="220" x="640" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="b8" parent="lane_cnn" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="Preprocess Image:&#xa;• Resize to model input size&#xa;• Normalize pixel values&#xa;• Convert to array" vertex="1">
+          <mxGeometry height="70" width="175" x="20" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="b9" parent="lane_cnn" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="CNN Model.predict(image)&#xa;Binary Classification" vertex="1">
+          <mxGeometry height="55" width="175" x="20" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="lane_cnn" source="b8" style="endArrow=block;endFill=1;" target="b9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_db" parent="1" style="swimlane;startSize=30;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=13;" value="Database" vertex="1">
+          <mxGeometry height="1480" width="200" x="880" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="b5_dec" parent="lane_db" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="User Logged In?" vertex="1">
+          <mxGeometry height="60" width="155" x="22.5" y="342.5" as="geometry" />
+        </mxCell>
+        <mxCell id="b6_dec" parent="lane_db" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Image Valid?" vertex="1">
+          <mxGeometry height="60" width="155" x="22.5" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="b13" parent="lane_db" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Save to DB:&#xa;{date, type=X-Ray,&#xa;diagnosis, confidence,&#xa;image_url, report_url}" vertex="1">
+          <mxGeometry height="70" width="150" x="40" y="1220" as="geometry" />
+        </mxCell>
+        <mxCell id="b10_dec" parent="lane_db" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Diagnosis?" vertex="1">
+          <mxGeometry height="60" width="135" x="32.5" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="end" parent="1" style="ellipse;fillColor=#000000;strokeColor=#000000;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="406" y="1626" as="geometry" />
+        </mxCell>
+        <mxCell id="end_ring" parent="1" style="ellipse;fillColor=none;strokeColor=#000000;strokeWidth=3;" value="" vertex="1">
+          <mxGeometry height="42" width="42" x="400" y="1620" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="b4" style="endArrow=block;endFill=1;" target="b5_dec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5b" edge="1" parent="1" source="b5_dec" style="endArrow=block;endFill=1;" target="b5b" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5c" edge="1" parent="1" source="b5_dec" style="endArrow=block;endFill=1;" target="b6" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="b6" style="endArrow=block;endFill=1;" target="b6_dec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6b" edge="1" parent="1" source="b6_dec" style="endArrow=block;endFill=1;" target="b6b" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6c" edge="1" parent="1" source="b6_dec" style="endArrow=block;endFill=1;" target="b7" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="b7" style="endArrow=block;endFill=1;" target="b8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10a" edge="1" parent="1" source="b10_dec" style="endArrow=block;endFill=1;" target="b11a" value="Pneumonia">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10b" edge="1" parent="1" source="b10_dec" style="endArrow=block;endFill=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="b11b" value="Normal">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="b15" style="endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="b13" value="Auto Save">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="1420" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="b9" style="endArrow=block;endFill=1;" target="b10_dec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uszhKULulR2IExDqkkXf-2" edge="1" parent="1" source="b15" style="endArrow=block;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="uszhKULulR2IExDqkkXf-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="1390" as="sourcePoint" />
+            <mxPoint x="347" y="1575" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uszhKULulR2IExDqkkXf-3" edge="1" parent="1" source="uszhKULulR2IExDqkkXf-1" style="endArrow=block;endFill=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="end_ring">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="170" y="1440" as="sourcePoint" />
+            <mxPoint x="217" y="1625" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

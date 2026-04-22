@@ -1,0 +1,225 @@
+.doctor-dashboard {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif;
+    padding: 40px;
+    background: linear-gradient(135deg, #e7f1fb 0%, #d4e8f7 100%);
+    min-height: 100vh;
+}
+
+.doctor-dashboard h2 {
+    color: #1E5BA6;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #1E5BA6, #4a90c2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Search bar */
+.search-bar input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 16px;
+    border: 1px solid rgba(30, 91, 166, 0.2);
+    margin-bottom: 20px;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+}
+
+/* Table */
+table.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+table.table thead {
+    background: linear-gradient(135deg, #1E5BA6, #4a90c2);
+    color: white;
+}
+
+table.table th,
+table.table td {
+    text-align: left;
+    padding: 16px 20px;
+    font-size: 15px;
+}
+
+table.table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 13px;
+}
+
+table.table td {
+    color: #444;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+table.table tr:hover {
+    background: linear-gradient(90deg, rgba(30, 91, 166, 0.05), rgba(30, 91, 166, 0.1));
+    transition: background 0.3s ease;
+}
+
+table.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ⭐️ أهم تعديل هنا */
+.patient-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.patient-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgba(30,91,166,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.patient-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.patient-info .name {
+    font-weight: 600;
+    color: #1E5BA6;
+    font-size: 14px;
+}
+
+.patient-info .email {
+    font-size: 13px;
+    color: #555;
+}
+
+/* Buttons */
+.btn {
+    background-color: #1E5BA6;
+    color: #ffffff;
+    padding: 10px 18px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(30, 91, 166, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn:hover {
+    box-shadow: 0 6px 20px rgba(30, 91, 166, 0.4);
+}
+
+/* Pagination */
+nav {
+    margin-top: 20px;
+}
+
+nav .pagination {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+nav .pagination {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+nav .pagination li a {
+    border-radius: 12px;
+    color: #333;
+    padding: 6px 12px;
+    min-width: 36px;
+    text-align: center;
+}
+
+nav .pagination li a.active,
+nav .pagination li a:hover {
+    background-color: #1E5BA6;
+    color: white;
+}
+.page-link {
+    cursor: pointer;
+}
+
+.page-item span.page-link {
+    background: transparent;
+    border: none;
+    color: #999;
+    cursor: default;
+}
+/* ---------------- Responsive ---------------- */
+@media (max-width: 1024px) {
+    .doctor-dashboard {
+        padding: 30px;
+    }
+
+    table.table th, table.table td {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+
+    .btn {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .doctor-dashboard {
+        padding: 20px;
+    }
+
+    table.table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    nav .pagination {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .doctor-dashboard {
+        padding: 15px;
+    }
+
+    .patient-card img {
+        width: 50px;
+        height: 50px;
+    }
+
+    table.table th, table.table td {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .btn {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    nav .pagination {
+        justify-content: center;
+        gap: 4px;
+    }
+}

@@ -1,0 +1,162 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="AD5 - Doctor Review Patient" id="AD5_DoctorReview">
+    <mxGraphModel dx="719" dy="455" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lane_doctor" parent="1" style="swimlane;startSize=30;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=13;" value="Doctor" vertex="1">
+          <mxGeometry height="1160" width="210" x="30" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="f2b" parent="lane_doctor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Return Error:&#xa;Invalid credentials" vertex="1">
+          <mxGeometry height="50" width="150" x="20" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_doctor" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="80" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="f10_dec" parent="lane_doctor" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Click&#xa;View Report?" vertex="1">
+          <mxGeometry height="65" width="150" x="10" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_system" parent="1" style="swimlane;startSize=30;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=13;" value="System" vertex="1">
+          <mxGeometry height="1160" width="230" x="250" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_db" parent="1" style="swimlane;startSize=30;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=13;" value="Patient Database" vertex="1">
+          <mxGeometry height="1160" width="220" x="490" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="f15b" parent="lane_db" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Back to Patients List" vertex="1">
+          <mxGeometry height="45" width="155" x="45" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_report" parent="1" style="swimlane;startSize=30;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=13;" value="Report Storage" vertex="1">
+          <mxGeometry height="1160" width="190" x="720" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="f11" parent="lane_report" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="Load Report File&#xa;from report_url&#xa;(PDF stored in /reports/)" vertex="1">
+          <mxGeometry height="60" width="160" x="20" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Enter Credentials&#xa;(email + password)" vertex="1">
+          <mxGeometry height="50" width="170" x="40" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="POST /user/login&#xa;Verify credentials&#xa;Check role = doctor" vertex="1">
+          <mxGeometry height="60" width="185" x="270" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="f2_dec" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Auth Valid +&#xa;Role = Doctor?" vertex="1">
+          <mxGeometry height="65" width="175" x="275" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Redirect to Doctor Dashboard&#xa;(return access_token)" vertex="1">
+          <mxGeometry height="50" width="175" x="275" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="GET /user/get_users_names&#xa;(with access_token)&#xa;Query: All patients (limit data)" vertex="1">
+          <mxGeometry height="65" width="175" x="515" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="f5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Display Patients Table:&#xa;[id, name, age, image]&#xa;+ &#39;View History&#39; button" vertex="1">
+          <mxGeometry height="60" width="175" x="275" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="f6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Select Patient&#xa;(click &#39;View History&#39;)" vertex="1">
+          <mxGeometry height="45" width="170" x="40" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="f7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="GET /user/get_users_reports/{id}&#xa;(access_token + user_id)" vertex="1">
+          <mxGeometry height="55" width="175" x="275" y="515" as="geometry" />
+        </mxCell>
+        <mxCell id="f8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Query Patient History:&#xa;SELECT * FROM assessments&#xa;WHERE user_id = ?&#xa;Returns:&#xa;{id, date, diagnosis,&#xa;check_type, advice,&#xa;image_url, report_url}" vertex="1">
+          <mxGeometry height="105" width="175" x="515" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="f9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Display Patient History Table:&#xa;• Date&#xa;• Assessment Type (X-Ray / Symptoms)&#xa;• Result (Pneumonia / Normal)&#xa;• Confidence Score&#xa;• &#39;View Report&#39; button" vertex="1">
+          <mxGeometry height="90" width="175" x="275" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="f10b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Stay on History Page&#xa;(browse other records)" vertex="1">
+          <mxGeometry height="50" width="150" x="40" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="f12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Display Medical Report:&#xa;• Patient Name&#xa;• Date&#xa;• Assessment Type&#xa;• Result (Pneumonia / Normal)&#xa;• Advice / Recommendations&#xa;• Disclaimer" vertex="1">
+          <mxGeometry height="100" width="175" x="275" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="f13_dec" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Download&#xa;Report PDF?" vertex="1">
+          <mxGeometry height="65" width="150" x="40" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="f14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Download Report PDF&#xa;(report_url link)" vertex="1">
+          <mxGeometry height="50" width="150" x="40" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="f15_dec" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Review Another&#xa;Patient?" vertex="1">
+          <mxGeometry height="65" width="175" x="275" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="end" parent="1" style="ellipse;fillColor=#000000;strokeColor=#000000;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="350" y="1286" as="geometry" />
+        </mxCell>
+        <mxCell id="end_ring" parent="1" style="ellipse;fillColor=none;strokeColor=#000000;strokeWidth=3;" value="" vertex="1">
+          <mxGeometry height="42" width="42" x="344" y="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="start" style="endArrow=block;endFill=1;" target="f1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="f1" style="endArrow=block;endFill=1;" target="f2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="f2" style="endArrow=block;endFill=1;" target="f2_dec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3b" edge="1" parent="1" source="f2_dec" style="endArrow=block;endFill=1;" target="f2b" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3c" edge="1" parent="1" source="f2_dec" style="endArrow=block;endFill=1;" target="f3" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="f3" style="endArrow=block;endFill=1;" target="f4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="f4" style="endArrow=block;endFill=1;" target="f5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="f5" style="endArrow=block;endFill=1;" target="f6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="f6" style="endArrow=block;endFill=1;" target="f7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="f7" style="endArrow=block;endFill=1;" target="f8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="f8" style="endArrow=block;endFill=1;" target="f9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10b" edge="1" parent="1" source="f10_dec" style="endArrow=block;endFill=1;" target="f10b" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10c" edge="1" parent="1" source="f10_dec" style="endArrow=block;endFill=1;" target="f11" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="f11" style="endArrow=block;endFill=1;" target="f12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="f12" style="endArrow=block;endFill=1;" target="f13_dec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13a" edge="1" parent="1" source="f13_dec" style="endArrow=block;endFill=1;" target="f14" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13b" edge="1" parent="1" source="f13_dec" style="endArrow=block;endFill=1;" target="f15_dec" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="f14" style="endArrow=block;endFill=1;" target="f15_dec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15a" edge="1" parent="1" source="f15_dec" style="endArrow=block;endFill=1;" target="f15b" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15b_edge" edge="1" parent="1" source="f15b" style="endArrow=block;endFill=1;" target="f5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="960" />
+              <mxPoint x="700" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="f15_dec" style="endArrow=block;endFill=1;" target="end" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="f9" style="endArrow=block;endFill=1;entryX=0.612;entryY=0.943;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" target="f10_dec">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="262.61" y="652.9040404040404" as="sourcePoint" />
+            <mxPoint x="149.99586156111934" y="624.4661266568482" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

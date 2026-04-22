@@ -1,0 +1,230 @@
+/* Base styles (existing) */
+.patient-history {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif;
+    padding: 40px;
+    background: linear-gradient(135deg, #e7f1fb 0%, #d4e8f7 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.patient-history .back{
+    text-decoration: none;
+    color: #1E5BA6;
+}
+
+.history-details{
+    display: flex;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    flex-direction: column;
+    gap: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.history-details .info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 16px;
+    color: #333;
+    flex: 1;
+}
+
+.history-details .info p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.history-details .info p:first-child {
+    font-size: 20px;
+    color: #1E5BA6;
+    font-weight: 700;
+}
+
+.history-details img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(30, 91, 166, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.patient-history h2 {
+    color: #1E5BA6;
+    margin: 20px 0 30px 0;
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #1E5BA6, #4a90c2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+}
+
+/* Table styling */
+table.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+table.table thead {
+    background: linear-gradient(135deg, #1E5BA6, #4a90c2);
+    color: white;
+}
+
+table.table th,
+table.table td {
+    text-align: left;
+    padding: 16px 20px;
+    font-size: 15px;
+}
+
+table.table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 13px;
+}
+table.tbale .one{
+    display: flex;
+}
+
+table.table td {
+    color: #444;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+table.table tr:hover {
+    background: linear-gradient(90deg, rgba(30, 91, 166, 0.05), rgba(30, 91, 166, 0.1));
+    transition: background 0.3s ease;
+}
+
+table.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Result badges */
+.result-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.result-badge.pneumonia { color: #ff6b6b; }
+.result-badge.normal { color: #51cf66; }
+
+/* Buttons */
+.btn {
+    background-color: #1E5BA6;
+    color: #ffffff;
+    padding: 10px 18px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(30, 91, 166, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn:hover {
+    box-shadow: 0 6px 20px rgba(30, 91, 166, 0.4);
+}
+
+/* ------------------ Responsive ------------------ */
+@media (max-width: 1024px) {
+    .history-details {
+        padding: 25px;
+    }
+
+    .history-details .info p:first-child {
+        font-size: 18px;
+    }
+
+    .history-details img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .patient-history {
+        padding: 20px;
+    }
+
+    .patient-history h2 {
+        font-size: 26px;
+    }
+
+    .history-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .history-details .info {
+        text-align: center;
+    }
+
+    table.table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table.table th,
+    table.table td {
+        padding: 12px 10px;
+        min-width: 120px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .history-details {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .history-details img {
+        width: 70px;
+        height: 70px;
+    }
+
+    table.table th,
+    table.table td {
+        padding: 10px 8px;
+        font-size: 12px;
+        min-width: 100px;
+    }
+
+    .patient-history h2 {
+        font-size: 22px;
+    }
+
+    .btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}

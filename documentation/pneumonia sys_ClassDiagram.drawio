@@ -1,0 +1,203 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram id="PneumoniaSysV3" name="Class Diagram">
+    <mxGraphModel dx="1209" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="User" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fillColor=#1a237e;fontColor=#ffffff;strokeColor=#1a237e;fontSize=13;rounded=1;" value="User" vertex="1">
+          <mxGeometry height="230" width="240" x="560" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="User_attr" parent="User" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fontFace=Courier New;" value="- id : int&#xa;- name : String&#xa;- email : String&#xa;- password : String&#xa;- age : int&#xa;- phone : String&#xa;- gender : String&#xa;- address : String&#xa;- image : String&#xa;- user_type : String" vertex="1">
+          <mxGeometry height="148" width="240" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="User_div" parent="User" style="line;strokeColor=#ffffff;fillColor=none;opacity=30;" value="" vertex="1">
+          <mxGeometry height="10" width="240" y="178" as="geometry" />
+        </mxCell>
+        <mxCell id="User_meth" parent="User" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fontFace=Courier New;" value="+ register() : Response&#xa;+ login() : Token" vertex="1">
+          <mxGeometry height="42" width="240" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="Patient" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fillColor=#0d47a1;fontColor=#ffffff;strokeColor=#0d47a1;fontSize=13;rounded=1;" value="Patient" vertex="1">
+          <mxGeometry height="150" width="220" x="80" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="Patient_attr" parent="Patient" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fontFace=Courier New;" value="- user_type = &quot;patient&quot;&#xa;- next_check : Date&#xa;- histories : List" vertex="1">
+          <mxGeometry height="62" width="220" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Patient_div" parent="Patient" style="line;strokeColor=#ffffff;fillColor=none;opacity=30;" value="" vertex="1">
+          <mxGeometry height="10" width="220" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="Patient_meth" parent="Patient" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fontFace=Courier New;" value="+ getInfo() : UserData" vertex="1">
+          <mxGeometry height="35" width="220" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="Doctor" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fillColor=#0d47a1;fontColor=#ffffff;strokeColor=#0d47a1;fontSize=13;rounded=1;" value="Doctor" vertex="1">
+          <mxGeometry height="140" width="240" x="560" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="Doctor_attr" parent="Doctor" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fontFace=Courier New;" value="- user_type = &quot;doctor&quot;" vertex="1">
+          <mxGeometry height="30" width="240" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Doctor_div" parent="Doctor" style="line;strokeColor=#ffffff;fillColor=none;opacity=30;" value="" vertex="1">
+          <mxGeometry height="10" width="240" y="63" as="geometry" />
+        </mxCell>
+        <mxCell id="Doctor_meth" parent="Doctor" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fontFace=Courier New;" value="+ getPatientNames() : List&#xa;+ getPatientReports(id) : List" vertex="1">
+          <mxGeometry height="55" width="240" y="73" as="geometry" />
+        </mxCell>
+        <mxCell id="Admin" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fillColor=#0d47a1;fontColor=#ffffff;strokeColor=#0d47a1;fontSize=13;rounded=1;" value="Admin" vertex="1">
+          <mxGeometry height="155" width="230" x="1040" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="Admin_attr" parent="Admin" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fontFace=Courier New;" value="- user_type = &quot;admin&quot;" vertex="1">
+          <mxGeometry height="30" width="230" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Admin_div" parent="Admin" style="line;strokeColor=#ffffff;fillColor=none;opacity=30;" value="" vertex="1">
+          <mxGeometry height="10" width="230" y="63" as="geometry" />
+        </mxCell>
+        <mxCell id="Admin_meth" parent="Admin" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fontFace=Courier New;" value="+ createDoctor() : Response&#xa;+ getAllUsers() : List&#xa;+ removeUser(id) : Response" vertex="1">
+          <mxGeometry height="72" width="230" y="73" as="geometry" />
+        </mxCell>
+        <mxCell id="DiagnosisResult" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fillColor=#b71c1c;fontColor=#ffffff;strokeColor=#b71c1c;fontSize=13;rounded=1;" value="DiagnosisResult" vertex="1">
+          <mxGeometry height="210" width="280" x="530" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="DR_attr" parent="DiagnosisResult" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fontFace=Courier New;" value="- id : int&#xa;- date : Date&#xa;- diagnosis : String&#xa;- check_type : String&#xa;- advice : String&#xa;- image_url : String&#xa;- report_url : String" vertex="1">
+          <mxGeometry height="130" width="280" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DR_div" parent="DiagnosisResult" style="line;strokeColor=#ffffff;fillColor=none;opacity=30;" value="" vertex="1">
+          <mxGeometry height="10" width="280" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="DR_meth" parent="DiagnosisResult" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fontFace=Courier New;" value="+ getReport() : PDF" vertex="1">
+          <mxGeometry height="35" width="280" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="XRayPredictor" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fillColor=#1b5e20;fontColor=#ffffff;strokeColor=#1b5e20;fontSize=13;rounded=1;" value="XRayPredictor" vertex="1">
+          <mxGeometry height="140" width="230" x="80" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="XR_attr" parent="XRayPredictor" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fontFace=Courier New;" value="- image : File&#xa;- image_url : String" vertex="1">
+          <mxGeometry height="50" width="230" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XR_div" parent="XRayPredictor" style="line;strokeColor=#ffffff;fillColor=none;opacity=30;" value="" vertex="1">
+          <mxGeometry height="10" width="230" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="XR_meth" parent="XRayPredictor" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fontFace=Courier New;" value="+ predict(image) : DiagnosisResult&#xa;+ preprocess() : Image" vertex="1">
+          <mxGeometry height="45" width="230" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="SymptomPredictor" parent="1" style="swimlane;fontStyle=1;align=center;startSize=30;fillColor=#1b5e20;fontColor=#ffffff;strokeColor=#1b5e20;fontSize=13;rounded=1;" value="SymptomPredictor" vertex="1">
+          <mxGeometry height="260" width="260" x="1020" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="SP_attr" parent="SymptomPredictor" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fontFace=Courier New;" value="- gender : String&#xa;- age : int&#xa;- cough : bool&#xa;- fever : bool&#xa;- shortnessOfBreath : bool&#xa;- chestPain : bool&#xa;- fatigueMild : bool&#xa;- confusion : bool&#xa;- oxygenSaturation : float&#xa;- crackles : bool&#xa;- temperature : float" vertex="1">
+          <mxGeometry height="185" width="260" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SP_div" parent="SymptomPredictor" style="line;strokeColor=#ffffff;fillColor=none;opacity=30;" value="" vertex="1">
+          <mxGeometry height="10" width="260" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="SP_meth" parent="SymptomPredictor" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;fontSize=11;fontFace=Courier New;" value="+ predict(form) : DiagnosisResult" vertex="1">
+          <mxGeometry height="30" width="260" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pat_usr" edge="1" parent="1" source="Patient" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;startArrow=none;strokeColor=#1565C0;strokeWidth=2.5;fontSize=11;fontStyle=1;fontColor=#1565C0;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="User_meth" value="inherits">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="310" />
+              <mxPoint x="560" y="310" />
+              <mxPoint x="560" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_doc_usr" edge="1" parent="1" source="Doctor" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;startArrow=none;strokeColor=#1565C0;strokeWidth=2.5;fontSize=11;fontStyle=1;fontColor=#1565C0;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="User" value="inherits">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_adm_usr" edge="1" parent="1" source="Admin" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=0;startArrow=none;strokeColor=#1565C0;strokeWidth=2.5;fontSize=11;fontStyle=1;fontColor=#1565C0;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" value="inherits">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1155" y="310" />
+              <mxPoint x="800" y="310" />
+            </Array>
+            <mxPoint x="680" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_pat_dr" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;startArrow=diamondThin;startFill=1;endArrow=none;strokeColor=#6a1b9a;strokeWidth=2.5;fontSize=11;fontStyle=1;fontColor=#6a1b9a;labelBackgroundColor=#ffffff;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="DiagnosisResult" value="histories">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="540" />
+              <mxPoint x="270" y="670" />
+              <mxPoint x="530" y="670" />
+            </Array>
+            <mxPoint x="270" y="540" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m1" connectable="0" parent="1" style="resizable=0;html=1;align=left;verticalAlign=bottom;labelBackgroundColor=none;fontSize=12;fontStyle=1;" value="1" vertex="1">
+          <mxGeometry height="20" width="20" x="160" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="m2" connectable="0" parent="1" style="resizable=0;html=1;align=left;verticalAlign=bottom;labelBackgroundColor=none;fontSize=12;fontStyle=1;" value="0..*" vertex="1">
+          <mxGeometry height="20" width="40" x="480" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pat_xr" edge="1" parent="1" source="Patient" style="edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 4;endArrow=open;endFill=0;startArrow=none;strokeColor=#e65100;strokeWidth=2;fontSize=11;fontStyle=3;fontColor=#e65100;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="XRayPredictor" value="«uses» POST /predict/image">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="660" />
+              <mxPoint x="195" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_pat_sp" edge="1" parent="1" source="Patient" style="edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 4;endArrow=open;endFill=0;startArrow=none;strokeColor=#e65100;strokeWidth=2;fontSize=11;fontStyle=3;fontColor=#e65100;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="SymptomPredictor" value="«uses» POST /predict/form">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="465" />
+              <mxPoint x="400" y="630" />
+              <mxPoint x="960" y="630" />
+              <mxPoint x="960" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_xr_dr" edge="1" parent="1" source="XRayPredictor" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;startArrow=none;strokeColor=#005700;strokeWidth=2.5;fontSize=11;fontStyle=1;fontColor=#263238;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;fillColor=#008a00;" target="DiagnosisResult" value="produces">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="310" y="887" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_sp_dr" edge="1" parent="1" source="SymptomPredictor" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;startArrow=none;strokeColor=#2D7600;strokeWidth=2.5;fontSize=11;fontStyle=1;fontColor=#263238;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;fillColor=#60a917;" target="DiagnosisResult" value="produces">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940" y="863" />
+              <mxPoint x="810" y="863" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend_box" parent="1" style="swimlane;fontStyle=1;fontSize=12;fillColor=#37474f;fontColor=#ffffff;strokeColor=#263238;startSize=28;rounded=1;" value="Legend" vertex="1">
+          <mxGeometry height="130" width="720" x="80" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_inh_line" edge="1" parent="legend_box" style="endArrow=block;endFill=0;strokeColor=#1565C0;strokeWidth=2.5;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="20" y="52" as="sourcePoint" />
+            <mxPoint x="76" y="52" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg_inh_lbl" connectable="0" parent="legend_box" style="text;fontSize=11;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;" value="Inheritance ──▷  subclass extends parent" vertex="1">
+          <mxGeometry height="22" width="270" x="84" y="41" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_comp_line" edge="1" parent="legend_box" style="startArrow=diamondThin;startFill=1;endArrow=none;strokeColor=#6a1b9a;strokeWidth=2.5;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="20" y="80" as="sourcePoint" />
+            <mxPoint x="76" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg_comp_lbl" connectable="0" parent="legend_box" style="text;fontSize=11;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;" value="Composition ◆──  owner has parts (1 to 0..*)" vertex="1">
+          <mxGeometry height="22" width="280" x="84" y="69" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_dep_line" edge="1" parent="legend_box" style="dashed=1;dashPattern=8 4;endArrow=open;endFill=0;strokeColor=#e65100;strokeWidth=2;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="20" y="108" as="sourcePoint" />
+            <mxPoint x="76" y="108" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg_dep_lbl" connectable="0" parent="legend_box" style="text;fontSize=11;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;" value="Dependency - - -&gt;  «uses» calls endpoint temporarily" vertex="1">
+          <mxGeometry height="22" width="300" x="84" y="97" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_assoc_line" edge="1" parent="legend_box" style="endArrow=open;endFill=0;strokeColor=#2D7600;strokeWidth=2.5;fillColor=#60a917;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="52" as="sourcePoint" />
+            <mxPoint x="446" y="52" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg_assoc_lbl" connectable="0" parent="legend_box" style="text;fontSize=11;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;" value="Association ───&gt;  produces / general connection" vertex="1">
+          <mxGeometry height="22" width="290" x="454" y="41" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

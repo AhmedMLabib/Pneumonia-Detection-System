@@ -1,0 +1,135 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="AD4 - Admin Create Doctor" id="AD4_AdminCreateDoctor">
+    <mxGraphModel dx="772" dy="489" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lane_admin" parent="1" style="swimlane;startSize=30;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=13;" value="Admin" vertex="1">
+          <mxGeometry height="1460" width="210" x="30" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d2b" parent="lane_admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Return Error:&#xa;Invalid credentials or&#xa;Unauthorized role" vertex="1">
+          <mxGeometry height="55" width="175" x="7.5" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="d8b" parent="lane_admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Show Validation Error&#xa;(required fields missing)" vertex="1">
+          <mxGeometry height="50" width="160" x="20" y="785" as="geometry" />
+        </mxCell>
+        <mxCell id="d9b" parent="lane_admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Return Error:&#xa;&#39;Email already in use&#39;" vertex="1">
+          <mxGeometry height="50" width="150" x="30" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_admin" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="80" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="d5" parent="lane_admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" value="Click &#39;Create Doctor&#39; Button" vertex="1">
+          <mxGeometry height="45" width="170" x="10" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_system" parent="1" style="swimlane;startSize=30;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=13;" value="System" vertex="1">
+          <mxGeometry height="1460" width="230" x="247.5" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d4" parent="lane_system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="GET /user/get_all_users&#xa;(with access_token)&#xa;Returns: [id, name, email,&#xa;age, phone, role, ...]" vertex="1">
+          <mxGeometry height="70" width="175" x="22.5" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="d12" parent="lane_system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Return Success Response:&#xa;{message: &#39;Doctor created&#xa;successfully!&#39;, doctor_id}&#xa;Update Users List in UI" vertex="1">
+          <mxGeometry height="70" width="175" x="27.5" y="1370" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" parent="lane_system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="POST /user/login&#xa;Verify credentials + role = admin" vertex="1">
+          <mxGeometry height="50" width="185" x="22.5" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="lIBepzKiMsdvuX04oGRx-1" parent="lane_system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Redirect to Admin Dashboard&#xa;(return access_token)" vertex="1">
+          <mxGeometry height="50" width="175" x="27.5" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="lIBepzKiMsdvuX04oGRx-2" edge="1" parent="lane_system" source="d4" style="endArrow=block;endFill=1;exitX=0.53;exitY=1.035;exitDx=0;exitDy=0;exitPerimeter=0;" target="lIBepzKiMsdvuX04oGRx-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="137" y="420" as="sourcePoint" />
+            <mxPoint x="82.5" y="434.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lane_db" parent="1" style="swimlane;startSize=30;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=13;" value="Database" vertex="1">
+          <mxGeometry height="1460" width="200" x="490" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d2_dec" parent="lane_db" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Auth Valid +&#xa;Role = Admin?" vertex="1">
+          <mxGeometry height="65" width="175" x="12.5" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="d9" parent="lane_db" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Query DB:&#xa;SELECT * WHERE email = ?&#xa;Check if email exists" vertex="1">
+          <mxGeometry height="60" width="160" x="32.5" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="d9_dec" parent="lane_db" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Email Already&#xa;Exists?" vertex="1">
+          <mxGeometry height="65" width="150" x="37.5" y="975" as="geometry" />
+        </mxCell>
+        <mxCell id="d10" parent="lane_db" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="INSERT Doctor Account:&#xa;{name, email,&#xa;hashed_password,&#xa;age, phone, gender,&#xa;address, role=Doctor}" vertex="1">
+          <mxGeometry height="80" width="160" x="32.5" y="1170" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="lane_db" source="d9" style="endArrow=block;endFill=1;" target="d9_dec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10c" edge="1" parent="lane_db" source="d9_dec" style="endArrow=block;endFill=1;" target="d10" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" value="Enter Credentials&#xa;(email + password)" vertex="1">
+          <mxGeometry height="50" width="170" x="40" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="d6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" value="Fill Create Doctor Form:&#xa;• Name&#xa;• Email&#xa;• Password&#xa;• Age, Phone, Gender, Address&#xa;(Role auto-set to: Doctor)" vertex="1">
+          <mxGeometry height="95" width="170" x="40" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="d7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" value="Click Submit Form" vertex="1">
+          <mxGeometry height="45" width="170" x="40" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="d8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="POST /user/create_doctor&#xa;Validate Required Fields:&#xa;name, email, password" vertex="1">
+          <mxGeometry height="60" width="175" x="275" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="d8_dec" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Fields Valid?" vertex="1">
+          <mxGeometry height="60" width="165" x="280" y="795" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="start" style="endArrow=block;endFill=1;" target="d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="d1" style="endArrow=block;endFill=1;" target="d2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="d2" style="endArrow=block;endFill=1;" target="d2_dec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3b" edge="1" parent="1" source="d2_dec" style="endArrow=block;endFill=1;" target="d2b" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3c" edge="1" parent="1" source="d2_dec" style="endArrow=block;endFill=1;entryX=0.639;entryY=-0.048;entryDx=0;entryDy=0;entryPerimeter=0;" target="d4" value="Yes">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410.9183673469388" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="d5" style="endArrow=block;endFill=1;" target="d6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="d6" style="endArrow=block;endFill=1;" target="d7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="d7" style="endArrow=block;endFill=1;" target="d8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="d8" style="endArrow=block;endFill=1;" target="d8_dec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9b" edge="1" parent="1" source="d8_dec" style="endArrow=block;endFill=1;" target="d8b" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9c" edge="1" parent="1" source="d8_dec" style="endArrow=block;endFill=1;" target="d9" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="d10" style="endArrow=block;endFill=1;" target="d12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10b" edge="1" parent="1" source="d9_dec" style="endArrow=block;endFill=1;" target="d9b" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="end" parent="1" style="ellipse;fillColor=#000000;strokeColor=#000000;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="347.5" y="1505" as="geometry" />
+        </mxCell>
+        <mxCell id="end_ring" parent="1" style="ellipse;fillColor=none;strokeColor=#000000;strokeWidth=3;" value="" vertex="1">
+          <mxGeometry height="42" width="42" x="341.5" y="1499" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="d12" style="endArrow=block;endFill=1;" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
