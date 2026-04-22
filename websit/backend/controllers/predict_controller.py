@@ -1,6 +1,7 @@
 from flask import render_template, request, jsonify
 import pdfkit
 from DB.database import db
+from config import BASE_DIR
 from models.user_model import User
 from models.history_model import History
 from datetime import datetime, timedelta
@@ -9,19 +10,23 @@ import os
 from services.symptoms_predict_services import predict as form_serv
 from services.image_predict_services import predict as image_serv
 
+wk_path = os.path.join(BASE_DIR, "wkhtmltopdf.exe")
+
+config = pdfkit.configuration(wkhtmltopdf=wk_path)
+
 normal_advice = "The analysis does not show signs commonly associated with pneumonia. This is a reassuring result. However, this system is intended to assist with preliminary screening and should not replace a professional medical evaluation. If you are experiencing symptoms such as persistent cough, fever, chest pain, or difficulty breathing, it is still recommended to consult a healthcare professional for proper assessment. Maintaining a healthy lifestyle, staying hydrated, and seeking medical advice when symptoms appear are important steps for protecting your respiratory health."
 
 pneumonia_advice = "The analysis suggests a possible indication of pneumonia. There is no need to panic, as many cases of pneumonia can be successfully treated when medical care is received in time. It is recommended that you get adequate rest, drink plenty of fluids, and avoid smoking or strenuous physical activity. Please monitor your symptoms, especially fever, persistent cough, chest discomfort, or shortness of breath. Most importantly, you should visit a qualified healthcare professional as soon as possible for a proper medical examination and accurate diagnosis. Early medical evaluation and appropriate treatment greatly improve recovery and help prevent complications."
-
+UPLOAD_FOLDER = os.path.join(BASE_DIR, "uploads")
+REPORTS_FOLDER = os.path.join(BASE_DIR, "reports")
 def create_report(report_data):
   rendered = render_template("report_temp.html", **report_data)
   
   timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
   new_filename = f"{report_data['user_id']}_{timestamp}.pdf"
   
-  path = os.path.join('reports', new_filename)
-  
-  pdfkit.from_string(rendered, path)
+  path = os.path.join(REPORTS_FOLDER, new_filename)
+  pdfkit.from_string(rendered, path, configuration=config)
   return new_filename
 
 def predict_from_form(user_id):
@@ -92,7 +97,7 @@ def predict_from_image(user_id):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     new_filename = f"{name}_{timestamp}{extension}"
     
-    image_path = os.path.join('uploads', new_filename)
+    image_path = os.path.join(UPLOAD_FOLDER, new_filename)
     
     image.save(image_path)
     # predict diagnosis based on uploaded Image and get advice and next checkup date based on diagnosis

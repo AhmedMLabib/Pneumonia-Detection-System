@@ -4,6 +4,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import os
+from config import BASE_DIR
 
 def focal_loss(alpha=0.3, gamma=2.0):
 	def loss(y_true, y_pred):
@@ -11,7 +12,6 @@ def focal_loss(alpha=0.3, gamma=2.0):
 		pt = tf.where(K.equal(y_true, 1), y_pred, 1 - y_pred)
 		return -K.mean(alpha * K.pow(1. - pt, gamma) * K.log(pt))
 	return loss
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 model = None
 
@@ -28,7 +28,8 @@ def preprocess_image(img_path):
 def predict(image_path):
 	global model
 	if model is None:
-		model = load_model(f"{BASE_DIR}/../models_ml/best_model_150.keras", custom_objects={"focal_loss": focal_loss})
+		model_path = os.path.join(BASE_DIR, "models_ml", "best_model_150.keras")
+		model = load_model(model_path, custom_objects={"focal_loss": focal_loss})
 	
 	img = preprocess_image(image_path)
 	prediction = model.predict(img)[0][0]

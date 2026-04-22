@@ -7,6 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 from werkzeug.utils import secure_filename
 import os
+from config import BASE_DIR
 
 def register():
   data = request.form # data sent from frontend (data.form because it contains image)
@@ -20,7 +21,7 @@ def register():
   name, extension = os.path.splitext(original_filename)
   timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
   new_filename = f"{name}_{timestamp}{extension}"
-  image_path = os.path.join('uploads', new_filename)
+  image_path = os.path.join(BASE_DIR, "uploads", new_filename)
   image.save(image_path)
   # hash the password before saving user to database
   password = data.get('password')
@@ -116,7 +117,7 @@ def create_doctor(current_user_id):
             name, extension = os.path.splitext(filename)
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             image_name = f"{name}_{timestamp}{extension}"
-            upload_path = os.path.join('uploads', image_name)
+            upload_path = os.path.join(BASE_DIR, "uploads", image_name)
             file.save(upload_path)
 
 

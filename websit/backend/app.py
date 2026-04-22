@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_cors import CORS
 from DB.database import db
@@ -7,10 +8,11 @@ from flask_jwt_extended import JWTManager
 from routes.predict_routes import predict_bp
 from routes.user_routes import user_bp
 from routes.media_routes import media_bp
-
+from config import BASE_DIR
+DB_PATH = os.path.join(BASE_DIR, "instance", "database.db")
 app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = 'pI1D5TdfY3Ep7RrxvhRIrOKB57aS59rrVGaxyKaVbyy' 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{DB_PATH}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # initialize JWT manager and database
 jwt = JWTManager(app)

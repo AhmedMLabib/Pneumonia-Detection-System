@@ -2,8 +2,7 @@ import os
 
 import pandas as pd
 import joblib
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+from config import BASE_DIR
 
 
 model = None
@@ -33,8 +32,8 @@ def prepare_user_data(df):
 def predict(data):
   global model, trained_encoders
   if model is None or trained_encoders is None:
-    model = joblib.load(f"{BASE_DIR}/../models_ml/pneumonia_model.pkl")
-    trained_encoders = joblib.load(f"{BASE_DIR}/../models_ml/encoders.pkl")
+    model = joblib.load(f"{BASE_DIR}/models_ml/pneumonia_model.pkl")
+    trained_encoders = joblib.load(f"{BASE_DIR}/models_ml/encoders.pkl")
   try:
     user_df = pd.DataFrame([data])
     clean_user_data = prepare_user_data(user_df)
