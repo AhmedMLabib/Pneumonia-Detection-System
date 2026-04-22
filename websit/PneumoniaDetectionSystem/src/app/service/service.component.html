@@ -1,0 +1,91 @@
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <img src="logo.png" alt="logo" class="logo" />
+    <span class="brand-name">Smart Respiratory Care</span>
+  </div>
+
+  <ul class="nav-links">
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/about">About</a></li>
+    <li><a routerLink="/service" class="active">Services</a></li>
+    <li><a routerLink="/health-info">Health Info</a></li>
+    <li><a routerLink="/doctors">Doctors</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <button class="btn-login">Login</button>
+    <button class="btn-signup">Sign Up</button>
+  </div>
+</nav>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <h2 class="section-title">Our Services</h2>
+  <div class="title-underline"></div>
+
+  <div class="services-grid">
+
+    <!-- Card 1 -->
+    <div class="service-card">
+      <div class="card-image">
+        <img src="xray.png" alt="Chest X-Ray" />
+      </div>
+      <div class="card-body">
+        <h3>Chest X-Ray Analysis</h3>
+        <p>Upload an X-ray for AI-powered diagnosis.</p>
+
+        <label class="file-label">
+          <input type="file" accept="image/*" (change)="onFileSelected($event)" class="file-input-hidden" />
+          <span class="file-btn">
+            {{ selectedFile ? selectedFile.name : 'Choose File' }}
+          </span>
+        </label>
+
+        <button class="btn-service" (click)="uploadXRay()" [disabled]="loading">
+          {{ loading ? 'Analyzing...' : 'Upload X-Ray' }}
+          <span class="arrow">&#8250;</span>
+        </button>
+
+        <div class="result" *ngIf="result">
+          <p><strong>Diagnosis:</strong> {{ result.diagnosis }}</p>
+          <p><strong>Advice:</strong> {{ result.advice }}</p>
+        </div>
+
+        <div class="error-msg" *ngIf="error">{{ error }}</div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="service-card">
+      <div class="card-image">
+        <img src="symptom.png" alt="Symptom Checker" />
+      </div>
+      <div class="card-body">
+        <h3>Symptom Checker</h3>
+        <p>Answer questions to assess your symptoms.</p>
+
+        <form class="symptom-form" (ngSubmit)="submitSymptoms()">
+
+        
+
+          <button type="submit" class="btn-service green" [disabled]="loadingForm">
+            {{ loadingForm ? 'Assessing...' : 'Start Assessment' }}
+            <span class="arrow">&#8250;</span>
+          </button>
+
+        </form>
+
+        <div class="result" *ngIf="resultForm">
+          <p><strong>Diagnosis:</strong> {{ resultForm.diagnosis }}</p>
+          <p><strong>Advice:</strong> {{ resultForm.advice }}</p>
+        </div>
+
+        <div class="error-msg" *ngIf="errorForm">{{ errorForm }}</div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
