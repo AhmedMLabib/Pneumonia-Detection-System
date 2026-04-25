@@ -1,0 +1,186 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F4F7FB;
+    color: #2C3E50;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Navbar */
+.logo-title{
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a6db5;
+}
+
+.nav-item .nav-link{
+    font-size: 15px;
+    font-weight: 500;
+    color: #1a6db5;
+    transition: all 0.3s ease;
+}
+
+.nav-item .nav-link:hover{
+    font-weight: 700;
+    border-bottom: 1px solid #1a6db5;
+    color: #1a6db5;
+}
+
+.nav-item .login-btn{
+    background-color: #1a6db5;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-item .login-btn:hover{
+    background-color: #fff;
+    color: #1a6db5;
+    border: 2px solid #1a6db5;
+}
+
+.nav-item .signup-btn{
+    background-color: transparent;
+    color: #1a6db5;
+    border: 2px solid #1a6db5;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-item .signup-btn:hover{
+    background-color: #1a6db5;
+    color: white;
+}
+
+/* Content */
+.content{
+    background-color: #dfebf7;
+    padding: 30px;
+}
+
+.page-title{
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a6db5;
+    margin-bottom: 20px;
+}
+
+.with-line {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.with-line::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #afc8e9;
+}
+
+
+.card h5 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a6db5;
+}
+
+.card p,
+.card span {
+    color: #1a6db5;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.date{
+    font-size: 12px;
+    font-weight: 600;
+    color: #edb1b5;
+}
+
+
+.profile-card {
+    border-radius: 12px;
+    text-align: center;
+}
+
+.profile-card-content{
+    background-color: #dfebf7;
+}
+
+.profile-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+
+.edit-btn {
+    border-radius: 10px;
+    border: 1px solid #E0E6ED;
+    background: #fff;
+}
+
+.edit-btn span {
+    color: #1a6db5;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.view-all {
+    color: #2F6FB3;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.view-all:hover {
+    font-weight: 700;
+}
+
+.dots {
+    font-size: 20px;
+    color: #1a6db5;
+    cursor: pointer;
+}
+
+.btn {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+small {
+    font-size: 12px;
+}
+
+.download-btn{
+    color: #1a6db5;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #1a6db5;
+    padding: 8px 16px;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover{
+    background-color: #1a6db5;
+    color: white;
+}
+
+.next-check-badge {
+    background: #e8f4ff;
+    border-radius: 6px;
+    padding: 6px 10px;
+    color: #1a6db5;
+    font-weight: 600;
+}

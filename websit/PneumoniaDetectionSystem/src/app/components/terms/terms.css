@@ -1,0 +1,134 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F4F7FB;
+  color: #2C3E50;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Navbar */
+.logo-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a6db5;
+}
+
+.nav-item .nav-link {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a6db5;
+  transition: all 0.3s ease;
+}
+
+.nav-item .nav-link:hover {
+  font-weight: 700;
+  border-bottom: 1px solid #1a6db5;
+  color: #1a6db5;
+}
+
+.nav-item .login-btn {
+  background-color: transparent;
+  color: #1a6db5;
+  font-size: 18px;
+}
+
+.nav-item .login-btn:hover {
+  background-color: #fff;
+  color: #1a6db5;
+  border: 2px solid #1a6db5;
+}
+
+.nav-item .logout-btn {
+  background-color: #1a6db5;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav-item .logout-btn:hover {
+  background-color: #fff;
+  color: #1a6db5;
+  border: 2px solid #1a6db5;
+}
+
+/* CARD */
+.terms-card {
+  max-width: 700px;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* TITLE */
+.terms {
+  color: #1a6db5;
+}
+
+/* DISCLAIMER */
+.disclaimer {
+  background: #f8d7da;
+  color: #842029;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* SCROLL AREA */
+.content-box {
+  height: 250px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  background: #fafafa;
+}
+
+/* TEXT */
+.content-box h3 {
+  color: #2c5aa0;
+  font-size: 16px;
+}
+
+.content-box p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* BUTTONS */
+.buttons {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding-top: 10px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #ddd;
+}
+
+button {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.decline {
+  background: #e9ecef;
+}
+
+.accept {
+  background: #198754;
+  color: white;
+}
+
+.accept:hover {
+  background: #157347;
+}

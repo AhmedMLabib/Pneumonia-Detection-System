@@ -1,0 +1,181 @@
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light px-3 px-lg-5">
+  <div class="container">
+
+    <a class="navbar-brand d-flex align-items-center" routerLink="/profile">
+      <img src="/logo.png" class="img-fluid" style="max-height:90px;width:120px;" alt="logo">
+      <h3 class="logo-title ms-lg-2 mb-0 d-none d-lg-inline">Pneumonia Detector</h3>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto text-center text-lg-start">
+        <li class="nav-item me-lg-4"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item me-lg-4"><a class="nav-link" href="#">About</a></li>
+        <li class="nav-item me-lg-4"><a class="nav-link" href="#">Services</a></li>
+        <li class="nav-item me-lg-4"><a class="nav-link" href="#">Health Info</a></li>
+        <li class="nav-item me-lg-4"><a class="nav-link" href="#">Doctors</a></li>
+        <li class="nav-item mt-2 mt-lg-0">
+          <button class="login-btn btn px-4" (click)="onLogout()">
+            <i class="fa-solid fa-right-from-bracket me-1"></i> Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<!-- LOADING -->
+<div *ngIf="isLoading" class="d-flex justify-content-center align-items-center" style="min-height:60vh;">
+  <div class="text-center">
+    <div class="spinner-border" style="color:#1a6db5; width:3rem; height:3rem;" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-3" style="color:#1a6db5; font-weight:600;">Loading your profile...</p>
+  </div>
+</div>
+
+<!-- ERROR -->
+<div *ngIf="!isLoading && errorMessage" class="container my-4">
+  <div class="alert alert-danger d-flex align-items-center gap-2">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    {{ errorMessage }}
+    <button class="btn btn-sm btn-outline-danger ms-auto" (click)="loadUserInfo()">Retry</button>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content container my-3" *ngIf="!isLoading && !errorMessage && userInfo">
+  <h2 class="page-title with-line p-4">My Health Profile</h2>
+
+  <div class="container my-4">
+    <div class="row g-4">
+
+      <!-- LEFT PROFILE CARD -->
+      <div class="col-lg-3">
+        <div class="card profile-card p-3 text-center">
+          <div class="profile-card-content">
+            <img
+              [src]="getProfileImage()"
+              class="profile-img mb-3 pt-2 mx-auto"
+              alt="user"
+              (error)="$any($event.target).src='/logo.png'"
+            >
+            <h5 class="fw-bold mb-1">{{ userInfo.name }}</h5>
+            <p class="small mb-1">
+              <i class="fa-solid fa-user"></i> Age {{ userInfo.age }}
+            </p>
+            <p class="small mb-1">
+              <i class="fa-solid fa-envelope"></i> {{ userInfo.email }}
+            </p>
+            <p class="small mb-1" *ngIf="userInfo.phone">
+              <i class="fa-solid fa-phone"></i> {{ userInfo.phone }}
+            </p>
+            <p class="small mb-1" *ngIf="userInfo.address">
+              <i class="fa-solid fa-location-dot"></i> {{ userInfo.address }}
+            </p>
+            <div *ngIf="userInfo.next_check" class="next-check-badge mt-2">
+              <small>
+                <i class="fa-regular fa-calendar-check me-1"></i>
+                Next Check: {{ formatDate(userInfo.next_check) }}
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <button class="card edit-btn btn w-100 mt-3" (click)="onEditProfile()">
+          <span>
+            <i class="fa-solid fa-user-pen"></i> Edit Profile
+          </span>
+        </button>
+      </div>
+
+      <!-- RIGHT CONTENT -->
+      <div class="col-lg-9">
+
+        <!-- Assessment History -->
+        <div class="card p-4 mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">Assessment History</h5>
+            <a
+              href="javascript:void(0)"
+              class="view-all"
+              *ngIf="histories.length > 2"
+              (click)="toggleHistory()"
+            >
+              {{ showAllHistory ? 'Show Less' : 'View All' }}
+            </a>
+          </div>
+
+          <hr>
+
+          <!-- Empty -->
+          <div *ngIf="histories.length === 0" class="text-center py-3">
+            <p style="color:#afc8e9; font-weight:600;">No assessments yet.</p>
+          </div>
+
+          <!-- Rows -->
+          <div
+            *ngFor="let item of displayedHistories; let last = last"
+            class="d-flex justify-content-between align-items-center py-2"
+            [class.border-bottom]="!last"
+          >
+            <div>
+              <span class="date me-3">{{ formatDate(item.date) }}</span>
+              <span>{{ item.check_type }} :</span>
+              <span [class]="getDiagnosisClass(item.diagnosis)"> {{ item.diagnosis }}</span>
+            </div>
+            <span class="dots" (click)="onViewAssessment(item.id)">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- Reports -->
+        <div class="card p-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">My Reports</h5>
+            <a
+              href="javascript:void(0)"
+              class="view-all"
+              *ngIf="reports.length > 2"
+              (click)="toggleReports()"
+            >
+              {{ showAllReports ? 'Show Less' : 'View All' }}
+            </a>
+          </div>
+
+          <hr>
+
+          <!-- Empty -->
+          <div *ngIf="reports.length === 0" class="text-center py-3">
+            <p style="color:#afc8e9; font-weight:600;">No reports generated yet.</p>
+          </div>
+
+          <!-- Rows -->
+          <div
+            *ngFor="let report of displayedReports; let last = last"
+            class="d-flex justify-content-between align-items-center py-3"
+            [class.border-bottom]="!last"
+          >
+            <div class="d-flex align-items-center">
+              <i class="fa-solid fa-file-lines me-3 fs-4" style="color:#1a6db5;"></i>
+              <div>
+                <p class="mb-0 fw-semibold">{{ report.check_type }} Report</p>
+                <small>{{ formatDate(report.date) }}</small>
+              </div>
+            </div>
+            <button class="download-btn" (click)="onDownloadReport(report.report_url)">
+              Download PDF <i class="fa-solid fa-angle-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
